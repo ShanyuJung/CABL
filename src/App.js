@@ -1,10 +1,10 @@
 import { Fragment } from "react";
-import Header from "./components/Layout/Header";
+import NavbarComp from "./components/Layout/NavbarComp";
 
 const App = () => {
   return (
     <Fragment>
-      <Header />
+      <NavbarComp />
     </Fragment>
   );
 };

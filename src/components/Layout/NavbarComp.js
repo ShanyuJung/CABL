@@ -14,7 +14,7 @@ const NavbarComp = () => {
   return (
     <Router>
       <Fragment>
-        <Navbar bg="dark" expand="sm" variant="dark">
+        <Navbar sticky="top" bg="dark" expand="sm" variant="dark">
           <Container>
             <Navbar.Brand as={Link} to={"/Home"}>
               CABL 大專校友棒球聯盟
@@ -36,9 +36,6 @@ const NavbarComp = () => {
           </Container>
         </Navbar>
         <Switch>
-          <Route path="/Home">
-            <Home />
-          </Route>
           <Route path="/Score">
             <Score />
           </Route>
@@ -56,6 +53,9 @@ const NavbarComp = () => {
           </Route>
           <Route path="/NCCU">
             <NCCU />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </Fragment>

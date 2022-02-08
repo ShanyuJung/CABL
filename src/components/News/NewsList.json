@@ -1,0 +1,32 @@
+[
+  {
+    "id": "news01",
+    "date": "2021/12/15",
+    "title": "Lorem ipsum dolor sit amet",
+    "newsContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tristique tincidunt orci, vel condimentum lorem varius at. Nulla sit amet ante aliquam, auctor tortor at, ornare nisi. Praesent consectetur, ex quis feugiat lacinia, magna dui vehicula justo, ac faucibus nisi magna ut dolor. Nam orci lectus, posuere eget ornare ac, venenatis vitae lectus. Maecenas nec ipsum convallis, pellentesque sem nec, blandit tellus. Ut eu nulla sapien. Aenean sollicitudin gravida ullamcorper. Nunc tristique eu massa quis venenatis. Sed varius ex et pellentesque cursus. Suspendisse mattis arcu sit amet iaculis elementum. Sed rhoncus nunc et magna blandit egestas."
+  },
+  {
+    "id": "news02",
+    "date": "2021/12/31",
+    "title": "Suspendisse et est egestas",
+    "newsContent": "Suspendisse et est egestas, maximus dolor sed, varius justo. Nullam vestibulum ante vulputate sodales finibus. Duis egestas aliquet nisl at suscipit. Morbi sit amet dapibus nulla, sed cursus libero. Phasellus interdum efficitur eros, id porttitor magna tincidunt ut. Phasellus tincidunt luctus purus id lacinia. Aliquam congue dui neque, ac placerat nibh porttitor a."
+  },
+  {
+    "id": "news03",
+    "date": "2021/10/13",
+    "title": "Donec efficitur turpis sem",
+    "newsContent": "Donec efficitur turpis sem, sit amet finibus metus eleifend eleifend. Nam a lobortis nunc, ac aliquet turpis. Etiam dolor nulla, tristique nec ex sit amet, semper varius sapien. Maecenas fermentum sem ut neque fermentum, non gravida est pretium. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc libero ligula, malesuada rhoncus urna ac, feugiat elementum risus. Maecenas congue felis nulla. Proin laoreet commodo placerat."
+  },
+  {
+    "id": "news04",
+    "date": "2022/01/09",
+    "title": "Fusce non faucibus ipsum",
+    "newsContent": "Fusce non faucibus ipsum. Etiam ligula felis, condimentum a leo a, mollis tempor leo. Sed vehicula tellus libero, vel rutrum dui auctor a. Aenean sem nisl, ultrices sit amet blandit nec, accumsan sed metus. Sed id porttitor dui, quis bibendum ligula. Vestibulum a consequat ex, eget porttitor arcu. Praesent mollis malesuada nibh."
+  },
+  {
+    "id": "news05",
+    "date": "2022/02/03",
+    "title": "Morbi placerat",
+    "newsContent": "Morbi placerat, purus eget convallis imperdiet, massa tortor tempus erat, sit amet molestie tellus quam non orci. Nullam a dolor lacinia, venenatis ex a, rhoncus leo. Donec non cursus mauris. Mauris placerat felis elementum ante imperdiet interdum. Curabitur eros risus, tempus nec feugiat sed, pulvinar ac enim. Vivamus in nibh quam. Fusce eleifend fermentum magna, id convallis enim fringilla semper. Aliquam tincidunt tempor est, a fringilla ipsum vehicula sit amet. Curabitur vulputate magna ac lectus pretium elementum ac at enim. Maecenas lacinia mollis sem eget egestas. Nunc malesuada velit ut molestie blandit."
+  }
+]

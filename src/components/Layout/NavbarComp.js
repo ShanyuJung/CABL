@@ -16,7 +16,7 @@ const NavbarComp = () => {
       <Fragment>
         <Navbar sticky="top" bg="dark" expand="sm" variant="dark">
           <Container>
-            <Navbar.Brand as={Link} to={"/Home"}>
+            <Navbar.Brand as={Link} to={"/"}>
               CABL 大專校友棒球聯盟
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

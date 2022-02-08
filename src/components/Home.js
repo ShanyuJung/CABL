@@ -1,9 +1,10 @@
-import { Fragment } from "react";
+import News from "./News/News";
 
 const Home = () => {
   return (
     <div className="content">
       <h1>Home1</h1>
+      <News />
       <h1>Home</h1>
       <h1>Home</h1>
       <h1>Home</h1>

@@ -1,0 +1,13 @@
+.newsCaption {
+  caption-side: top;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: white solid 1px;
+  text-align: center;
+  color: beige;
+}
+
+.newsTable {
+  width: 75%;
+  margin: auto;
+  text-align: center;
+}

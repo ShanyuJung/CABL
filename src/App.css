@@ -38,7 +38,8 @@
 }
 
 .content {
-  background-color: #61dafb;
-
-  padding-bottom: 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+  min-height: 100%;
+  padding-bottom: 100px;
+  box-sizing: border-box;
 }

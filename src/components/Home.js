@@ -1,31 +1,13 @@
 import News from "./News/News";
 
 const Home = () => {
+  const showNewsContentHandler = () => {
+    console.log("");
+  };
+
   return (
-    <div className="content">
-      <h1>Home1</h1>
-      <News />
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home22</h1>
+    <div>
+      <News onClick={showNewsContentHandler} />
     </div>
   );
 };

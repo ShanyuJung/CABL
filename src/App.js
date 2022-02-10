@@ -6,7 +6,9 @@ import "./App.css";
 const App = () => {
   return (
     <Fragment>
-      <NavbarComp />
+      <div className="content">
+        <NavbarComp />
+      </div>
       <Footer />
     </Fragment>
   );

@@ -2,7 +2,7 @@ import Table from "react-bootstrap/Table";
 import newsList from "./NewsList.json";
 import classes from "./News.module.css";
 import Modal from "../UI/Modal";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 const News = (props) => {
   const sortedNewsList = newsList.sort(function (a, b) {
@@ -24,7 +24,7 @@ const News = (props) => {
   };
 
   return (
-    <Fragment>
+    <>
       {showModal && <Modal onClose={onClose}>{selectedNews}</Modal>}
       <Table striped bordered hover className={classes.newsTable}>
         <caption className={classes.newsCaption}>News</caption>
@@ -43,7 +43,7 @@ const News = (props) => {
           ))}
         </tbody>
       </Table>
-    </Fragment>
+    </>
   );
 };
 

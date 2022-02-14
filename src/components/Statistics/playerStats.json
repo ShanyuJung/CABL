@@ -1,0 +1,41 @@
+[
+  {
+    "id": "NTU00001",
+    "playerName": "W.Chang",
+    "team": "NTU",
+    "game": 3,
+    "hit": 3,
+    "plateAppearance": 13,
+    "atBat": 11,
+    "basedOnBall": 2,
+    "double": 1,
+    "triple": 0,
+    "homerun": 1
+  },
+  {
+    "id": "NTU00002",
+    "playerName": "C.Lee",
+    "team": "NTU",
+    "game": 3,
+    "hit": 4,
+    "plateAppearance": 12,
+    "atBat": 11,
+    "basedOnBall": 1,
+    "double": 0,
+    "triple": 1,
+    "homerun": 0
+  },
+  {
+    "id": "NTU00003",
+    "playerName": "B.Chen",
+    "team": "NTU",
+    "game": 4,
+    "hit": 3,
+    "plateAppearance": 14,
+    "atBat": 13,
+    "basedOnBall": 1,
+    "double": 2,
+    "triple": 1,
+    "homerun": 0
+  }
+]

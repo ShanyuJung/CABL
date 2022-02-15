@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Table from "react-bootstrap/Table";
+import SortButton from "../UI/SortButton";
 import playerHittingStats from "./playerStats.json";
+import classes from "./Stats.module.css";
 
 const HittingStats = () => {
   const headers = [
@@ -17,7 +19,7 @@ const HittingStats = () => {
     { key: "hittingAverage", label: ".AVG" },
     { key: "onBasePercentage", label: ".OBP" },
     { key: "sluggingPercentage", label: ".SLG" },
-    { key: "onBasePlusSlugging", label: "OPS" },
+    { key: "onBasePlusSlugging", label: ".OPS" },
   ];
 
   const calAVG = (player) => {
@@ -55,24 +57,64 @@ const HittingStats = () => {
     };
   });
 
-  const [sortPlayerStats, setSortPlayerStats] = useState(calPlayerStats);
+  const [sortPlayerStats, setSortPlayerStats] = useState(
+    [...calPlayerStats].sort(function (a, b) {
+      return b.hittingAverage - a.hittingAverage;
+    })
+  );
+  const [sortIncreasing, setSortIncreasing] = useState(true);
+  const [selectItem, setSelectItem] = useState("hittingAverage");
 
   const onSortPlayerStats = (key) => {
-    setSortPlayerStats(
-      [...sortPlayerStats].sort(function (a, b) {
-        return b[key] - a[key];
-      })
-    );
+    if (selectItem === key) {
+      setSelectItem(key);
+      if (!sortIncreasing) {
+        setSortPlayerStats(
+          [...sortPlayerStats].sort(function (a, b) {
+            return b[key] - a[key];
+          })
+        );
+        setSortIncreasing(true);
+      } else {
+        setSortPlayerStats(
+          [...sortPlayerStats].sort(function (a, b) {
+            return a[key] - b[key];
+          })
+        );
+        setSortIncreasing(false);
+      }
+    } else {
+      setSelectItem(key);
+      setSortPlayerStats(
+        [...sortPlayerStats].sort(function (a, b) {
+          return b[key] - a[key];
+        })
+      );
+      setSortIncreasing(true);
+    }
   };
 
   return (
     <>
-      <Table striped bordered hover>
+      <Table striped bordered hover className={classes.statsTable}>
         <thead>
           <tr>
             {headers.map((row) => (
-              <th key={row.key} onClick={() => onSortPlayerStats(row.key)}>
+              <th
+                key={row.key}
+                className={row.key === selectItem ? classes.selected : ""}
+                onClick={() => onSortPlayerStats(row.key)}
+                nowrap="nowrap"
+              >
                 {row.label}
+                {headers.indexOf(row) > 2 && (
+                  <SortButton
+                    onClick={() => onSortPlayerStats(row.key)}
+                    className={row.key === selectItem ? classes.selected : ""}
+                  >
+                    {sortIncreasing ? "▲" : "▼"}
+                  </SortButton>
+                )}
               </th>
             ))}
           </tr>

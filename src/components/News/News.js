@@ -13,7 +13,6 @@ const News = (props) => {
   const [showModal, setShowModal] = useState(false);
 
   const showNewsContentHandler = (news) => {
-    console.log(news.newsContent);
     setSelectNews(news.newsContent);
     setShowModal(true);
   };

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "NTU00001",
+    "playerName": "W.Chang",
+    "team": "NTU",
+    "win": 1,
+    "lose": 0,
+    "game": 1,
+    "outsPitched": 11,
+    "hit": 3,
+    "basedOnBall": 2,
+    "homerun": 1,
+    "run": 4,
+    "earnedRun": 2,
+    "strikeOut": 2
+  }
+]

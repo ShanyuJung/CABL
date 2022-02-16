@@ -1,8 +1,9 @@
 .statsTable {
-  width: 75%;
+  max-width: 75%;
   margin: auto;
   text-align: center;
-  margin-top: 2em;
+  margin-top: 1em;
+  font-size: 1em;
 }
 
 .selected {

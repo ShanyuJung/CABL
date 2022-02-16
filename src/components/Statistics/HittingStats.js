@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
-import playerHittingStats from "./playerStats.json";
+import playerHittingStats from "./playerHittingStats.json";
 import classes from "./Stats.module.css";
 
 const HittingStats = () => {
@@ -15,7 +15,12 @@ const HittingStats = () => {
     { key: "double", label: "2B" },
     { key: "triple", label: "3B" },
     { key: "homerun", label: "HR" },
+    { key: "run", label: "R" },
+    { key: "runBattedIn", label: "RBI" },
+    { key: "stolenBase", label: "SB" },
+    { key: "caughtStealing", label: "CS" },
     { key: "basedOnBall", label: "BB" },
+    { key: "strikeOut", label: "SO" },
     { key: "hittingAverage", label: ".AVG" },
     { key: "onBasePercentage", label: ".OBP" },
     { key: "sluggingPercentage", label: ".SLG" },
@@ -63,11 +68,11 @@ const HittingStats = () => {
     })
   );
   const [sortIncreasing, setSortIncreasing] = useState(true);
-  const [selectItem, setSelectItem] = useState("hittingAverage");
+  const [selectedItem, setSelectedItem] = useState("hittingAverage");
 
   const onSortPlayerStats = (key) => {
-    if (selectItem === key) {
-      setSelectItem(key);
+    if (selectedItem === key) {
+      setSelectedItem(key);
       if (!sortIncreasing) {
         setSortPlayerStats(
           [...sortPlayerStats].sort(function (a, b) {
@@ -84,7 +89,7 @@ const HittingStats = () => {
         setSortIncreasing(false);
       }
     } else {
-      setSelectItem(key);
+      setSelectedItem(key);
       setSortPlayerStats(
         [...sortPlayerStats].sort(function (a, b) {
           return b[key] - a[key];
@@ -102,7 +107,7 @@ const HittingStats = () => {
             {headers.map((row) => (
               <th
                 key={row.key}
-                className={row.key === selectItem ? classes.selected : ""}
+                className={row.key === selectedItem ? classes.selected : ""}
                 onClick={() => onSortPlayerStats(row.key)}
                 nowrap="nowrap"
               >
@@ -110,7 +115,8 @@ const HittingStats = () => {
                 {headers.indexOf(row) > 2 && (
                   <SortButton
                     onClick={() => onSortPlayerStats(row.key)}
-                    className={row.key === selectItem ? classes.selected : ""}
+                    selectedItem={selectedItem}
+                    buttonKey={row.key}
                   >
                     {sortIncreasing ? "▲" : "▼"}
                   </SortButton>
@@ -133,7 +139,12 @@ const HittingStats = () => {
                 <td>{player.double}</td>
                 <td>{player.triple}</td>
                 <td>{player.homerun}</td>
+                <td>{player.run}</td>
+                <td>{player.runBattedIn}</td>
+                <td>{player.stolenBase}</td>
+                <td>{player.caughtStealing}</td>
                 <td>{player.basedOnBall}</td>
+                <td>{player.strikeOut}</td>
                 <td>{player.hittingAverage}</td>
                 <td>{player.onBasePercentage}</td>
                 <td>{player.sluggingPercentage}</td>

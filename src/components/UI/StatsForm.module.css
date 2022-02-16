@@ -1,0 +1,33 @@
+.statsForm {
+  margin: 1em;
+}
+
+.statsType {
+  position: relative;
+  top: 5%;
+  right: -80%;
+}
+
+.typeButton {
+  margin: 0.2em;
+  color: azure;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  height: 2em;
+  width: 70px;
+  border-radius: 5px;
+}
+
+.typeButton:hover {
+  background-color: brown;
+}
+
+.selectedType {
+  background-color: brown;
+  margin: 0.2em;
+  color: azure;
+  border: none;
+  height: 2em;
+  width: 70px;
+  border-radius: 5px;
+}

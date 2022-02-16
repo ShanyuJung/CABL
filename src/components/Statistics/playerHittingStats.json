@@ -10,7 +10,12 @@
     "basedOnBall": 2,
     "double": 1,
     "triple": 0,
-    "homerun": 1
+    "homerun": 1,
+    "run": 2,
+    "runBattedIn": 2,
+    "stolenBase": 0,
+    "caughtStealing": 0,
+    "strikeOut": 2
   },
   {
     "id": "NTU00002",
@@ -23,7 +28,12 @@
     "basedOnBall": 1,
     "double": 0,
     "triple": 1,
-    "homerun": 0
+    "homerun": 0,
+    "run": 3,
+    "runBattedIn": 0,
+    "stolenBase": 3,
+    "caughtStealing": 1,
+    "strikeOut": 1
   },
   {
     "id": "NTU00003",
@@ -36,6 +46,11 @@
     "basedOnBall": 1,
     "double": 2,
     "triple": 1,
-    "homerun": 0
+    "homerun": 0,
+    "run": 1,
+    "runBattedIn": 4,
+    "stolenBase": 1,
+    "caughtStealing": 0,
+    "strikeOut": 3
   }
 ]

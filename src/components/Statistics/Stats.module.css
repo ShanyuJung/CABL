@@ -6,6 +6,14 @@
   font-size: 1em;
 }
 
+.statsTable th {
+  cursor: pointer;
+}
+
+.statsTable tr {
+  cursor: default;
+}
+
 .selected {
   color: brown;
 }

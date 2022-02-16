@@ -108,7 +108,13 @@ const HittingStats = () => {
               <th
                 key={row.key}
                 className={row.key === selectedItem ? classes.selected : ""}
-                onClick={() => onSortPlayerStats(row.key)}
+                onClick={
+                  row.key === "order" ||
+                  row.key === "playerName" ||
+                  row.key === "team"
+                    ? () => {}
+                    : () => onSortPlayerStats(row.key)
+                }
                 nowrap="nowrap"
               >
                 {row.label}

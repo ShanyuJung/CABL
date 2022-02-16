@@ -1,7 +1,6 @@
 import classes from "./SortButton.module.css";
 
 const SortButton = (props) => {
-  console.log(props.selectedItem);
   return (
     <button
       onClick={props.onClick}

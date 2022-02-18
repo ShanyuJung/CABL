@@ -1,18 +1,18 @@
 import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
-import playerPitchingStats from "./playerPitchingStats.json";
+import playerPitchingStats from "./playerStats.json";
 import classes from "./Stats.module.css";
 
 const PitchingStats = () => {
   const headers = [
     { key: "order", label: "" },
-    { key: "playerName", label: "PlayerName" },
+    { key: "playerName", label: "Player Name" },
     { key: "team", label: "Team" },
     { key: "win", label: "W" },
     { key: "lose", label: "L" },
     { key: "earnedRunAverage", label: "ERA" },
-    { key: "game", label: "G" },
+    { key: "gamePitched", label: "G" },
     { key: "inningPitched", label: "IP" },
     { key: "hit", label: "H" },
     { key: "run", label: "R" },
@@ -34,22 +34,27 @@ const PitchingStats = () => {
   };
 
   const calWHIP = (player) => {
-    return ((player.hit + player.basedOnBall) / (player.IPx3 / 3)).toFixed(2);
+    return (
+      (player.hitAllowed + player.basedOnBallAllowed) /
+      (player.IPx3 / 3)
+    ).toFixed(2);
   };
 
   const calAVG = (player) => {
-    return (player.hit / player.atBat).toFixed(3);
+    return (player.hitAllowed / player.atBatFaced).toFixed(3);
   };
 
-  const calPlayerStats = playerPitchingStats.map((player) => {
-    return {
-      ...playerPitchingStats[playerPitchingStats.indexOf(player)],
-      inningPitched: calIP(player),
-      earnedRunAverage: calERA(player),
-      walkAndHitPerInningPitched: calWHIP(player),
-      hittingAverageAllowed: calAVG(player),
-    };
-  });
+  const calPlayerStats = playerPitchingStats
+    .filter((player) => player.gamePitched > 0)
+    .map((player) => {
+      return {
+        ...playerPitchingStats[playerPitchingStats.indexOf(player)],
+        inningPitched: calIP(player),
+        earnedRunAverage: calERA(player),
+        walkAndHitPerInningPitched: calWHIP(player),
+        hittingAverageAllowed: calAVG(player),
+      };
+    });
 
   const [sortPlayerStats, setSortPlayerStats] = useState(
     [...calPlayerStats].sort(function (a, b) {
@@ -164,15 +169,15 @@ const PitchingStats = () => {
                 <td>{player.win}</td>
                 <td>{player.lose}</td>
                 <td>{player.earnedRunAverage}</td>
-                <td>{player.game}</td>
+                <td>{player.gamePitched}</td>
                 <td>{player.inningPitched}</td>
-                <td>{player.hit}</td>
-                <td>{player.run}</td>
+                <td>{player.hitAllowed}</td>
+                <td>{player.runAllowed}</td>
                 <td>{player.earnedRun}</td>
-                <td>{player.homerun}</td>
+                <td>{player.homerunAllowed}</td>
                 <td>{player.hitBatsmen}</td>
-                <td>{player.basedOnBall}</td>
-                <td>{player.strikeOut}</td>
+                <td>{player.basedOnBallAllowed}</td>
+                <td>{player.strikeOutPitched}</td>
                 <td>{player.walkAndHitPerInningPitched}</td>
                 <td>{player.hittingAverageAllowed}</td>
               </tr>

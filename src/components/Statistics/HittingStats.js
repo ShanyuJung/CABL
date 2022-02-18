@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
-import playerHittingStats from "./playerHittingStats.json";
+import playerHittingStats from "./playerStats.json";
 import classes from "./Stats.module.css";
 
 const HittingStats = () => {
   const headers = [
     { key: "order", label: "" },
-    { key: "playerName", label: "PlayerName" },
+    { key: "playerName", label: "Player Name" },
     { key: "team", label: "Team" },
     { key: "game", label: "G" },
     { key: "atBat", label: "AB" },
@@ -52,15 +52,17 @@ const HittingStats = () => {
     ).toFixed(3);
   };
 
-  const calPlayerStats = playerHittingStats.map((player) => {
-    return {
-      ...playerHittingStats[playerHittingStats.indexOf(player)],
-      hittingAverage: calAVG(player),
-      onBasePercentage: calOBP(player),
-      sluggingPercentage: calSLG(player),
-      onBasePlusSlugging: calOPS(player),
-    };
-  });
+  const calPlayerStats = playerHittingStats
+    .filter((player) => player.game > 0)
+    .map((player) => {
+      return {
+        ...playerHittingStats[playerHittingStats.indexOf(player)],
+        hittingAverage: calAVG(player),
+        onBasePercentage: calOBP(player),
+        sluggingPercentage: calSLG(player),
+        onBasePlusSlugging: calOPS(player),
+      };
+    });
 
   const [sortPlayerStats, setSortPlayerStats] = useState(
     [...calPlayerStats].sort(function (a, b) {

@@ -33,16 +33,16 @@ const ScoreBox = (props) => {
           lg="3"
           className="border-left border-right border-bottom border-secondary"
         >
-          GUEST
+          {props.data.guestTeam}
         </Col>
         <Col xs lg="3" className="border-right border-bottom border-secondary">
-          R
+          {props.data.guestTeamRun}
         </Col>
         <Col xs lg="3" className=" border-right border-bottom border-secondary">
-          H
+          {props.data.guestTeamHit}
         </Col>
         <Col xs lg="3" className=" border-right border-bottom border-secondary">
-          E
+          {props.data.guestTeamError}
         </Col>
       </Row>
 
@@ -51,16 +51,16 @@ const ScoreBox = (props) => {
           lg="3"
           className="border-left border-right border-bottom border-secondary"
         >
-          HOME
+          {props.data.homeTeam}
         </Col>
         <Col lg="3" className="border-right border-bottom border-secondary">
-          R
+          {props.data.homeTeamRun}
         </Col>
         <Col lg="3" className=" border-right border-bottom border-secondary">
-          H
+          {props.data.homeTeamHit}
         </Col>
         <Col lg="3" className=" border-right border-bottom border-secondary">
-          E
+          {props.data.homeTeamError}
         </Col>
       </Row>
       <Row>
@@ -68,8 +68,8 @@ const ScoreBox = (props) => {
           lg="12"
           className="border-left border-right border-bottom border-secondary"
         >
-          W: L: <br />
-          球場:
+          W: {props.data.winPitcher} L: {props.data.losePitcher} <br />
+          球場:{props.data.field}
         </Col>
       </Row>
     </Container>

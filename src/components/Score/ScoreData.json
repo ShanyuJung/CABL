@@ -1,0 +1,32 @@
+[
+  {
+    "gameNumber": "202201001",
+    "date": "2022-01-01",
+    "guestTeam": "台大校友",
+    "homeTeam": "中興校友",
+    "guestTeamRun": 9,
+    "guestTeamHit": 11,
+    "guestTeamError": 1,
+    "homeTeamRun": 10,
+    "homeTeamHit": 12,
+    "homeTeamError": 2,
+    "field": "觀山E",
+    "winPitcher": "pitcherA",
+    "losePitcher": "pitcherB"
+  },
+  {
+    "gameNumber": "202201002",
+    "date": "2022-01-01",
+    "guestTeam": "交大校友",
+    "homeTeam": "台大校友",
+    "guestTeamRun": 2,
+    "guestTeamHit": 6,
+    "guestTeamError": 0,
+    "homeTeamRun": 3,
+    "homeTeamHit": 7,
+    "homeTeamError": 1,
+    "field": "觀山D",
+    "winPitcher": "pitcherC",
+    "losePitcher": "pitcherD"
+  }
+]

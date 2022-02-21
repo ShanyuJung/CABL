@@ -23,12 +23,12 @@ const NavbarComp = () => {
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
                 <Nav.Link as={Link} to={"/Score"}>
-                  SCORE
+                  比賽成績
                 </Nav.Link>
                 <Nav.Link as={Link} to={"/Statistics"}>
-                  STATISTICS
+                  成績統計
                 </Nav.Link>
-                <NavDropdown title="TEAMS" id="basic-nav-dropdown">
+                <NavDropdown title="隊伍" id="basic-nav-dropdown">
                   <Teams />
                 </NavDropdown>
               </Nav>

@@ -10,7 +10,7 @@ const StatsForm = (props) => {
             props.statsType ? classes.selectedType : classes.typeButton
           }
         >
-          Hitting
+          打擊成績
         </button>
         <button
           onClick={props.onPitching}
@@ -18,7 +18,7 @@ const StatsForm = (props) => {
             props.statsType ? classes.typeButton : classes.selectedType
           }
         >
-          Pitching
+          投球成績
         </button>
       </div>
       {props.children}

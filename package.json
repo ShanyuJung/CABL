@@ -2,7 +2,7 @@
   "name": "cabl-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://shanyujung.github.io/CABL",
+  "homepage": "https://shanyujung.github.io/CABL/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",

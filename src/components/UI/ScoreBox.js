@@ -4,7 +4,7 @@ import classes from "./ScoreBox.module.css";
 const ScoreBox = (props) => {
   return (
     <Container className={classes.scoreBox}>
-      <Row xs={12} md={12} lg={12}>
+      <Row xs={4} md={4} lg={6}>
         <Col lg="3" className="border border-secondary">
           #
         </Col>

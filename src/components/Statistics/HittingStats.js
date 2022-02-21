@@ -103,7 +103,7 @@ const HittingStats = () => {
 
   return (
     <div className=" table-responsive">
-      <Table striped bordered hover table className={classes.statsTable}>
+      <Table striped bordered hover className={classes.statsTable}>
         <thead>
           <tr>
             {headers.map((row) => (

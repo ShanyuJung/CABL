@@ -35,7 +35,7 @@ const Roster = (props) => {
     <>
       <h1>{props.team}</h1>
       <div className="table-responsive">
-        <Table striped bordered hover table className={classes.rosterTable}>
+        <Table striped bordered hover className={classes.rosterTable}>
           <thead>
             <tr>
               {headers.map((row) => (

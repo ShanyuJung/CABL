@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../Home";
-import Score from "../Score";
+import Score from "../Score/Score";
 import Statistics from "../Statistics/Statistics";
 import NTU from "../Teams/NTU";
 import NCHU from "../Teams/NCHU";

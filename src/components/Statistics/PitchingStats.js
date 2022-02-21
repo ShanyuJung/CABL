@@ -7,7 +7,7 @@ import classes from "./Stats.module.css";
 const PitchingStats = () => {
   const headers = [
     { key: "order", label: "" },
-    { key: "playerName", label: "Player Name" },
+    { key: "playerName", label: "姓名" },
     { key: "team", label: "Team" },
     { key: "win", label: "W" },
     { key: "lose", label: "L" },
@@ -127,8 +127,8 @@ const PitchingStats = () => {
   };
 
   return (
-    <>
-      <Table striped bordered hover className={classes.statsTable}>
+    <div className="table-responsive">
+      <Table striped bordered hover table className={classes.statsTable}>
         <thead>
           <tr>
             {headers.map((row) => (
@@ -185,7 +185,7 @@ const PitchingStats = () => {
           })}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
 

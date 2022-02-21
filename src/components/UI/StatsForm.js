@@ -1,4 +1,3 @@
-import { useState } from "react";
 import classes from "./StatsForm.module.css";
 
 const StatsForm = (props) => {

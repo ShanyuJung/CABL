@@ -1,0 +1,23 @@
+.rosterTable {
+  width: 75%;
+  text-align: center;
+  margin: auto;
+  margin-top: 1em;
+  font-size: 1em;
+  min-width: 700px;
+}
+
+td,
+th {
+  max-width: 10px;
+}
+
+h1 {
+  text-align: right;
+  margin: 1em 15% 1em 0;
+}
+
+.respTable {
+  overflow-y: scroll;
+  margin: 5px;
+}

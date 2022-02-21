@@ -7,8 +7,8 @@ import classes from "./Stats.module.css";
 const HittingStats = () => {
   const headers = [
     { key: "order", label: "" },
-    { key: "playerName", label: "Player Name" },
-    { key: "team", label: "Team" },
+    { key: "playerName", label: "姓名" },
+    { key: "team", label: "隊伍" },
     { key: "game", label: "G" },
     { key: "atBat", label: "AB" },
     { key: "hit", label: "H" },
@@ -102,14 +102,16 @@ const HittingStats = () => {
   };
 
   return (
-    <>
-      <Table striped bordered hover className={classes.statsTable}>
+    <div className=" table-responsive">
+      <Table striped bordered hover table className={classes.statsTable}>
         <thead>
           <tr>
             {headers.map((row) => (
               <th
                 key={row.key}
-                className={row.key === selectedItem ? classes.selected : ""}
+                className={
+                  row.key === selectedItem ? classes.selected : row.key
+                }
                 onClick={
                   row.key === "order" ||
                   row.key === "playerName" ||
@@ -162,7 +164,7 @@ const HittingStats = () => {
           })}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
 

@@ -3,9 +3,10 @@
 }
 
 .statsType {
-  position: relative;
   top: 5%;
+  float: right;
   right: -80%;
+  margin-right: 5%;
 }
 
 .typeButton {

@@ -1,5 +1,6 @@
 import { Table } from "react-bootstrap";
 import playerList from "../Statistics/playerStats.json";
+import classes from "./Roster.module.css";
 
 const Roster = (props) => {
   const headers = [
@@ -31,34 +32,39 @@ const Roster = (props) => {
     });
 
   return (
-    <Table striped bordered hover>
-      <thead>
-        <tr>
-          {headers.map((row) => (
-            <th key={row.key}>{row.label}</th>
-          ))}
-        </tr>
-      </thead>
-
-      <tbody>
-        {rosterList.map((player) => {
-          return (
-            <tr key={player.id}>
-              <td>{player.playerNumber}</td>
-              <td>{player.playerName}</td>
-              <td>{player.departmentLevel}</td>
-              <td>{player.position}</td>
-              <td>{player.battingThrowing}</td>
-              <td>
-                {player.plateAppearance > 0 ? player.hittingAverage : "-"}
-              </td>
-              <td>{player.IPx3 > 0 ? player.earnedRunAverage : "-"}</td>
-              <td>{player.notes}</td>
+    <>
+      <h1>{props.team}</h1>
+      <div className="table-responsive">
+        <Table striped bordered hover table className={classes.rosterTable}>
+          <thead>
+            <tr>
+              {headers.map((row) => (
+                <th key={row.key}>{row.label}</th>
+              ))}
             </tr>
-          );
-        })}
-      </tbody>
-    </Table>
+          </thead>
+
+          <tbody>
+            {rosterList.map((player) => {
+              return (
+                <tr key={player.id}>
+                  <td>{player.playerNumber}</td>
+                  <td>{player.playerName}</td>
+                  <td>{player.departmentLevel}</td>
+                  <td>{player.position}</td>
+                  <td>{player.battingThrowing}</td>
+                  <td>
+                    {player.plateAppearance > 0 ? player.hittingAverage : "-"}
+                  </td>
+                  <td>{player.IPx3 > 0 ? player.earnedRunAverage : "-"}</td>
+                  <td>{player.notes}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </Table>
+      </div>
+    </>
   );
 };
 

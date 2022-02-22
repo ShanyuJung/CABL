@@ -6,23 +6,23 @@ import classes from "./Stats.module.css";
 
 const PitchingStats = () => {
   const headers = [
-    { key: "order", label: "" },
-    { key: "playerName", label: "姓名" },
-    { key: "team", label: "Team" },
-    { key: "win", label: "W" },
-    { key: "lose", label: "L" },
-    { key: "earnedRunAverage", label: "ERA" },
-    { key: "gamePitched", label: "G" },
-    { key: "inningPitched", label: "IP" },
-    { key: "hit", label: "H" },
-    { key: "run", label: "R" },
-    { key: "earnedRun", label: "ER" },
-    { key: "homerun", label: "HR" },
-    { key: "hitBatsmen", label: "HB" },
-    { key: "basedOnBall", label: "BB" },
-    { key: "strikeOut", label: "SO" },
-    { key: "walkAndHitPerInningPitched", label: "WHIP" },
-    { key: "hittingAverageAllowed", label: ".AVG" },
+    { key: "order", label: "", width: 30 },
+    { key: "playerName", label: "姓名", width: 70 },
+    { key: "team", label: "Team", width: 60 },
+    { key: "win", label: "W", width: 50 },
+    { key: "lose", label: "L", width: 50 },
+    { key: "earnedRunAverage", label: "ERA", width: 50 },
+    { key: "gamePitched", label: "G", width: 50 },
+    { key: "inningPitched", label: "IP", width: 50 },
+    { key: "hit", label: "H", width: 50 },
+    { key: "run", label: "R", width: 50 },
+    { key: "earnedRun", label: "ER", width: 50 },
+    { key: "homerun", label: "HR", width: 50 },
+    { key: "hitBatsmen", label: "HB", width: 50 },
+    { key: "basedOnBall", label: "BB", width: 50 },
+    { key: "strikeOut", label: "SO", width: 50 },
+    { key: "walkAndHitPerInningPitched", label: "WHIP", width: 50 },
+    { key: "hittingAverageAllowed", label: ".AVG", width: 50 },
   ];
 
   const calIP = (player) => {
@@ -129,6 +129,11 @@ const PitchingStats = () => {
   return (
     <div className="table-responsive">
       <Table striped bordered hover className={classes.statsTable}>
+        <colgroup>
+          {headers.map((row) => (
+            <col width={`${row.width}px`} key={row.key} />
+          ))}
+        </colgroup>
         <thead>
           <tr>
             {headers.map((row) => (

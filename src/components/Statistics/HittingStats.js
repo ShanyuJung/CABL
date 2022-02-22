@@ -6,25 +6,25 @@ import classes from "./Stats.module.css";
 
 const HittingStats = () => {
   const headers = [
-    { key: "order", label: "" },
-    { key: "playerName", label: "姓名" },
-    { key: "team", label: "隊伍" },
-    { key: "game", label: "G" },
-    { key: "atBat", label: "AB" },
-    { key: "hit", label: "H" },
-    { key: "double", label: "2B" },
-    { key: "triple", label: "3B" },
-    { key: "homerun", label: "HR" },
-    { key: "run", label: "R" },
-    { key: "runBattedIn", label: "RBI" },
-    { key: "stolenBase", label: "SB" },
-    { key: "caughtStealing", label: "CS" },
-    { key: "basedOnBall", label: "BB" },
-    { key: "strikeOut", label: "SO" },
-    { key: "hittingAverage", label: ".AVG" },
-    { key: "onBasePercentage", label: ".OBP" },
-    { key: "sluggingPercentage", label: ".SLG" },
-    { key: "onBasePlusSlugging", label: ".OPS" },
+    { key: "order", label: "", width: 30 },
+    { key: "playerName", label: "姓名", width: 70 },
+    { key: "team", label: "隊伍", width: 60 },
+    { key: "game", label: "G", width: 50 },
+    { key: "atBat", label: "AB", width: 50 },
+    { key: "hit", label: "H", width: 50 },
+    { key: "double", label: "2B", width: 50 },
+    { key: "triple", label: "3B", width: 50 },
+    { key: "homerun", label: "HR", width: 50 },
+    { key: "run", label: "R", width: 50 },
+    { key: "runBattedIn", label: "RBI", width: 50 },
+    { key: "stolenBase", label: "SB", width: 50 },
+    { key: "caughtStealing", label: "CS", width: 50 },
+    { key: "basedOnBall", label: "BB", width: 50 },
+    { key: "strikeOut", label: "SO", width: 50 },
+    { key: "hittingAverage", label: ".AVG", width: 50 },
+    { key: "onBasePercentage", label: ".OBP", width: 50 },
+    { key: "sluggingPercentage", label: ".SLG", width: 50 },
+    { key: "onBasePlusSlugging", label: ".OPS", width: 50 },
   ];
 
   const calAVG = (player) => {
@@ -104,6 +104,11 @@ const HittingStats = () => {
   return (
     <div className=" table-responsive">
       <Table striped bordered hover className={classes.statsTable}>
+        <colgroup>
+          {headers.map((row) => (
+            <col width={`${row.width}px`} key={row.key} />
+          ))}
+        </colgroup>
         <thead>
           <tr>
             {headers.map((row) => (

@@ -18,7 +18,7 @@ const NavbarComp = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to={"/CABL/Score"}>
+              <Nav.Link as={Link} to={"/Score"}>
                 比賽成績
               </Nav.Link>
               <Nav.Link as={Link} to={"/Statistics"}>
@@ -39,7 +39,7 @@ const NavbarComp = () => {
         <Route path="/CABL">
           <Home />
         </Route>
-        <Route path="/CABL/Score">
+        <Route path="/Score">
           <Score />
         </Route>
         <Route path="/Statistics">

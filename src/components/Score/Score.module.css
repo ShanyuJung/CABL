@@ -1,6 +1,6 @@
 .score {
-  width: 100%;
+  width: 80%;
   padding: auto;
   margin: auto;
-  display: inline-block;
+  max-width: 1200px;
 }

@@ -25,8 +25,17 @@ const News = (props) => {
   return (
     <>
       {showModal && <Modal onClose={onClose}>{selectedNews}</Modal>}
-      <Table striped bordered hover className={classes.newsTable}>
-        <caption className={classes.newsCaption}>News</caption>
+      <Table
+        striped
+        bordered
+        hover
+        responsive="sm"
+        className={classes.newsTable}
+      >
+        <caption className={classes.newsCaption}>最新公告</caption>
+        <colgroup>
+          <col width="150" />
+        </colgroup>
         <thead>
           <tr>
             <th>日期</th>

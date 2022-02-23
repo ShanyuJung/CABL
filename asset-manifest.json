@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/CABL/static/css/main.fcc6195d.css",
-    "main.js": "/CABL/static/js/main.36dc8270.js",
+    "main.css": "/CABL/static/css/main.47c549a8.css",
+    "main.js": "/CABL/static/js/main.3de5c94b.js",
     "static/js/787.6cabf4ef.chunk.js": "/CABL/static/js/787.6cabf4ef.chunk.js",
     "static/media/backgroundPic.jpg": "/CABL/static/media/backgroundPic.bc57b4a623acb9aff69e.jpg",
     "index.html": "/CABL/index.html",
-    "main.fcc6195d.css.map": "/CABL/static/css/main.fcc6195d.css.map",
-    "main.36dc8270.js.map": "/CABL/static/js/main.36dc8270.js.map",
+    "main.47c549a8.css.map": "/CABL/static/css/main.47c549a8.css.map",
+    "main.3de5c94b.js.map": "/CABL/static/js/main.3de5c94b.js.map",
     "787.6cabf4ef.chunk.js.map": "/CABL/static/js/787.6cabf4ef.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcc6195d.css",
-    "static/js/main.36dc8270.js"
+    "static/css/main.47c549a8.css",
+    "static/js/main.3de5c94b.js"
   ]
 }

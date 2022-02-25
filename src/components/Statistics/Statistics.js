@@ -1,7 +1,7 @@
 import HittingStats from "./HittingStats";
-import StatsForm from "../UI/StatsForm";
 import { useState } from "react";
 import PitchingStats from "./PitchingStats";
+import classes from "./Stats.module.css";
 
 const Statistics = () => {
   const [statsType, setStatsType] = useState(true);
@@ -17,16 +17,22 @@ const Statistics = () => {
   };
 
   return (
-    <StatsForm
-      onHitting={HittingStatsHandler}
-      onPitching={PitchingStatsHandler}
-      selectedHitting={statsType ? "selectedType" : ""}
-      selectedPitching={statsType ? "" : "selectedType"}
-      statsType={statsType}
-    >
+    <>
+      <button
+        onClick={HittingStatsHandler}
+        className={statsType ? classes.selectedType : classes.typeButton}
+      >
+        打擊成績
+      </button>
+      <button
+        onClick={PitchingStatsHandler}
+        className={statsType ? classes.typeButton : classes.selectedType}
+      >
+        投球成績
+      </button>
       {statsType && <HittingStats />}
       {!statsType && <PitchingStats />}
-    </StatsForm>
+    </>
   );
 };
 

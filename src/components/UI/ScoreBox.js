@@ -1,14 +1,13 @@
-import { Col, Container, Row } from "react-bootstrap";
 import classes from "./ScoreBox.module.css";
 
 const ScoreBox = (props) => {
   return (
     <table className={classes.scoreBox}>
       <colgroup>
-        <col width="140" />
-        <col width="70" />
-        <col width="70" />
-        <col width="70" />
+        <col width="100" />
+        <col width="50" />
+        <col width="50" />
+        <col width="50" />
       </colgroup>
       <thead>
         <tr>

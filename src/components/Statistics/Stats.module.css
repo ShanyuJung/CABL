@@ -5,6 +5,7 @@
   margin-top: 1em;
   font-size: 0.5rem;
   min-width: 1200px;
+  background-color: aliceblue;
 }
 
 .statsTable th {
@@ -17,4 +18,28 @@
 
 .selected {
   color: brown;
+}
+
+.typeButton {
+  margin: 0.2em;
+  color: azure;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  height: 2em;
+  width: 90px;
+  border-radius: 5px;
+}
+
+.typeButton:hover {
+  background-color: brown;
+}
+
+.selectedType {
+  background-color: brown;
+  margin: 0.2em;
+  color: azure;
+  border: none;
+  height: 2em;
+  width: 90px;
+  border-radius: 5px;
 }

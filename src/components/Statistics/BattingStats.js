@@ -1,90 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
-import playerHittingStats from "./playerStats.json";
 import classes from "./Stats.module.css";
 
-const HittingStats = () => {
+const BattingStats = (props) => {
   const headers = [
     { key: "order", label: "", width: 30 },
-    { key: "playerName", label: "姓名", width: 70 },
-    { key: "team", label: "隊伍", width: 60 },
-    { key: "game", label: "G", width: 50 },
-    { key: "atBat", label: "AB", width: 50 },
-    { key: "hit", label: "H", width: 50 },
-    { key: "double", label: "2B", width: 50 },
-    { key: "triple", label: "3B", width: 50 },
-    { key: "homerun", label: "HR", width: 50 },
-    { key: "run", label: "R", width: 50 },
-    { key: "runBattedIn", label: "RBI", width: 50 },
-    { key: "stolenBase", label: "SB", width: 50 },
-    { key: "caughtStealing", label: "CS", width: 50 },
-    { key: "basedOnBall", label: "BB", width: 50 },
-    { key: "strikeOut", label: "SO", width: 50 },
+    { key: "Name", label: "姓名", width: 70 },
+    { key: "Team Name", label: "隊伍", width: 60 },
+    { key: "G", label: "G", width: 50 },
+    { key: "AB", label: "AB", width: 50 },
+    { key: "H", label: "H", width: 50 },
+    { key: "2B", label: "2B", width: 50 },
+    { key: "3B", label: "3B", width: 50 },
+    { key: "hHR", label: "HR", width: 50 },
+    { key: "R", label: "R", width: 50 },
+    { key: "RBI", label: "RBI", width: 50 },
+    { key: "SB", label: "SB", width: 50 },
+    { key: "CS", label: "CS", width: 50 },
+    { key: "BB", label: "BB", width: 50 },
+    { key: "SO", label: "SO", width: 50 },
     { key: "hittingAverage", label: ".AVG", width: 50 },
     { key: "onBasePercentage", label: ".OBP", width: 50 },
     { key: "sluggingPercentage", label: ".SLG", width: 50 },
     { key: "onBasePlusSlugging", label: ".OPS", width: 50 },
   ];
 
-  const calAVG = (player) => {
-    return (player.hit / player.atBat).toFixed(3);
-  };
-
-  const calOBP = (player) => {
-    return ((player.hit + player.basedOnBall) / player.plateAppearance).toFixed(
-      3
-    );
-  };
-
-  const calSLG = (player) => {
-    return (
-      (player.homerun * 3 + player.triple * 2 + player.double + player.hit) /
-      player.atBat
-    ).toFixed(3);
-  };
-
-  const calOPS = (player) => {
-    return (
-      (player.homerun * 3 + player.triple * 2 + player.double + player.hit) /
-        player.atBat +
-      (player.hit + player.basedOnBall) / player.plateAppearance
-    ).toFixed(3);
-  };
-
-  const calPlayerStats = playerHittingStats
-    .filter((player) => player.game > 0)
-    .map((player) => {
-      return {
-        ...playerHittingStats[playerHittingStats.indexOf(player)],
-        hittingAverage: calAVG(player),
-        onBasePercentage: calOBP(player),
-        sluggingPercentage: calSLG(player),
-        onBasePlusSlugging: calOPS(player),
-      };
-    });
-
-  const [sortPlayerStats, setSortPlayerStats] = useState(
-    [...calPlayerStats].sort(function (a, b) {
-      return b.hittingAverage - a.hittingAverage;
-    })
-  );
+  const playerHittingStats = props.playerStats;
+  const [sortPlayerStats, setSortPlayerStats] = useState(playerHittingStats);
   const [sortIncreasing, setSortIncreasing] = useState(true);
   const [selectedItem, setSelectedItem] = useState("hittingAverage");
+
+  useEffect(() => {
+    setSortPlayerStats(playerHittingStats);
+  }, [playerHittingStats]);
 
   const onSortPlayerStats = (key) => {
     if (selectedItem === key) {
       setSelectedItem(key);
       if (!sortIncreasing) {
         setSortPlayerStats(
-          [...sortPlayerStats].sort(function (a, b) {
+          [...playerHittingStats].sort(function (a, b) {
             return b[key] - a[key];
           })
         );
         setSortIncreasing(true);
       } else {
         setSortPlayerStats(
-          [...sortPlayerStats].sort(function (a, b) {
+          [...playerHittingStats].sort(function (a, b) {
             return a[key] - b[key];
           })
         );
@@ -93,7 +56,7 @@ const HittingStats = () => {
     } else {
       setSelectedItem(key);
       setSortPlayerStats(
-        [...sortPlayerStats].sort(function (a, b) {
+        [...playerHittingStats].sort(function (a, b) {
           return b[key] - a[key];
         })
       );
@@ -144,22 +107,22 @@ const HittingStats = () => {
         <tbody>
           {sortPlayerStats.map((player) => {
             return (
-              <tr key={player.id}>
+              <tr key={player.ID}>
                 <td>{sortPlayerStats.indexOf(player) + 1}</td>
-                <td>{player.playerName}</td>
-                <td>{player.team}</td>
-                <td>{player.game}</td>
-                <td>{player.atBat}</td>
-                <td>{player.hit}</td>
-                <td>{player.double}</td>
-                <td>{player.triple}</td>
-                <td>{player.homerun}</td>
-                <td>{player.run}</td>
-                <td>{player.runBattedIn}</td>
-                <td>{player.stolenBase}</td>
-                <td>{player.caughtStealing}</td>
-                <td>{player.basedOnBall}</td>
-                <td>{player.strikeOut}</td>
+                <td>{player.Name}</td>
+                <td>{player["Team Name"]}</td>
+                <td>{player.G}</td>
+                <td>{player.AB}</td>
+                <td>{player.H}</td>
+                <td>{player["2B"]}</td>
+                <td>{player["3B"]}</td>
+                <td>{player.HR}</td>
+                <td>{player.R}</td>
+                <td>{player.RBI}</td>
+                <td>{player.SB}</td>
+                <td>{player.CS}</td>
+                <td>{player.BB}</td>
+                <td>{player.SO}</td>
                 <td>{player.hittingAverage}</td>
                 <td>{player.onBasePercentage}</td>
                 <td>{player.sluggingPercentage}</td>
@@ -173,4 +136,4 @@ const HittingStats = () => {
   );
 };
 
-export default HittingStats;
+export default BattingStats;

@@ -6,6 +6,40 @@ import initBattingStats from "./initBattingStats.json";
 import { calAVG, calOBP, calSLG, calOPS } from "./CalStatsFunc";
 
 const Statistics = (props) => {
+  const dataRange = [
+    "1990",
+    "1991",
+    "1992",
+    "1993",
+    "1994",
+    "1995",
+    "1996",
+    "1997",
+    "1998",
+    "1999",
+    "2000",
+    "2001",
+    "2002",
+    "2003",
+    "2004",
+    "2005",
+    "2006",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+  ];
   const [statsType, setStatsType] = useState(true);
   const [selectedYear, setSelectedYear] = useState("2021");
   const [playerStats, setPlayerStats] = useState(initBattingStats);
@@ -29,6 +63,7 @@ const Statistics = (props) => {
   }
 
   const selectYearHandler = (event) => {
+    setPlayerStats([]);
     setSelectedYear(event.target.value);
     fetch(
       `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/${
@@ -114,15 +149,21 @@ const Statistics = (props) => {
   return (
     <>
       <div className={classes["flex-container"]}>
-        <label htmlFor="yearSelector">年度</label>
+        <div className={classes.selectLabel}>年度</div>
         <select
           name="year"
           id="yearSelector"
           defaultValue="2021"
+          className={classes.statsSelector}
           onChange={selectYearHandler}
         >
-          <option value="2020">2020</option>
-          <option value="2021">2021</option>
+          {dataRange.map((year) => {
+            return (
+              <option value={year} key={year}>
+                {year}
+              </option>
+            );
+          })}
         </select>
         <button
           onClick={BattingStatsHandler}

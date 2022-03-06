@@ -107,7 +107,7 @@ const BattingStats = (props) => {
         <tbody>
           {sortPlayerStats.map((player) => {
             return (
-              <tr key={player.ID}>
+              <tr key={`${player.ID}${sortPlayerStats.indexOf(player) + 1}`}>
                 <td>{sortPlayerStats.indexOf(player) + 1}</td>
                 <td>{player.Name}</td>
                 <td>{player["Team Name"]}</td>

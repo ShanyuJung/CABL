@@ -43,3 +43,31 @@
   width: 90px;
   border-radius: 5px;
 }
+
+.flex-container {
+  display: flex;
+  width: 80%;
+  height: 5em;
+  margin: auto;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.statsSelector {
+  margin: 10px;
+  width: 80px;
+  height: 2em;
+  padding: 1px;
+  position: relative;
+  border-radius: 5px;
+  text-align-last: center;
+}
+
+.selectLabel {
+  margin: auto, 1em;
+  padding: auto;
+  height: 2em;
+  font-size: 16px;
+  line-height: 30px;
+  align-items: center;
+}

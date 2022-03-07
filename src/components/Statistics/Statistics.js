@@ -3,7 +3,15 @@ import { useState } from "react";
 import PitchingStats from "./PitchingStats";
 import classes from "./Stats.module.css";
 import initBattingStats from "./initBattingStats.json";
-import { calAVG, calOBP, calSLG, calOPS } from "./CalStatsFunc";
+import {
+  calAVG,
+  calOBP,
+  calSLG,
+  calOPS,
+  calERA,
+  calWHIP,
+  calAVGP,
+} from "./CalStatsFunc";
 
 const Statistics = (props) => {
   const dataRange = [
@@ -75,22 +83,40 @@ const Statistics = (props) => {
     )
       .then((res) => res.text())
       .then((data) => {
-        const playerHittingStats = JSON.parse(csvJSON(data)).slice(0, -1);
-        setPlayerStats(
-          playerHittingStats
-            .map((player) => {
-              return {
-                ...playerHittingStats[playerHittingStats.indexOf(player)],
-                hittingAverage: calAVG(player),
-                onBasePercentage: calOBP(player),
-                sluggingPercentage: calSLG(player),
-                onBasePlusSlugging: calOPS(player),
-              };
-            })
-            .sort(function (a, b) {
-              return b.hittingAverage - a.hittingAverage;
-            })
-        );
+        if (statsType) {
+          const playerHittingStats = JSON.parse(csvJSON(data)).slice(0, -1);
+          setPlayerStats(
+            playerHittingStats
+              .map((player) => {
+                return {
+                  ...playerHittingStats[playerHittingStats.indexOf(player)],
+                  hittingAverage: calAVG(player),
+                  onBasePercentage: calOBP(player),
+                  sluggingPercentage: calSLG(player),
+                  onBasePlusSlugging: calOPS(player),
+                };
+              })
+              .sort(function (a, b) {
+                return b.hittingAverage - a.hittingAverage;
+              })
+          );
+        } else {
+          const playerPitchingStats = JSON.parse(csvJSON(data)).slice(0, -1);
+          setPlayerStats(
+            playerPitchingStats
+              .map((player) => {
+                return {
+                  ...playerPitchingStats[playerPitchingStats.indexOf(player)],
+                  earnedRunAverage: calERA(player),
+                  walkAndHitPerInningPitched: calWHIP(player),
+                  hittingAverageAllowed: calAVGP(player),
+                };
+              })
+              .sort(function (a, b) {
+                return a.earnedRunAverage - b.earnedRunAverage;
+              })
+          );
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -138,13 +164,29 @@ const Statistics = (props) => {
     )
       .then((res) => res.text())
       .then((data) => {
-        setPlayerStats(JSON.parse(csvJSON(data)).slice(0, -1));
+        const playerPitchingStats = JSON.parse(csvJSON(data)).slice(0, -1);
+        setPlayerStats(
+          playerPitchingStats
+            .map((player) => {
+              return {
+                ...playerPitchingStats[playerPitchingStats.indexOf(player)],
+                earnedRunAverage: calERA(player),
+                walkAndHitPerInningPitched: calWHIP(player),
+                hittingAverageAllowed: calAVGP(player),
+              };
+            })
+            .sort(function (a, b) {
+              return a.earnedRunAverage - b.earnedRunAverage;
+            })
+        );
         setStatsType(false);
       })
       .catch((e) => {
         console.log(e);
       });
   };
+
+  console.log(playerStats);
 
   return (
     <>
@@ -179,7 +221,7 @@ const Statistics = (props) => {
         </button>
       </div>
       {statsType && <BattingStats playerStats={playerStats} />}
-      {!statsType && <PitchingStats />}
+      {!statsType && <PitchingStats playerStats={playerStats} />}
     </>
   );
 };

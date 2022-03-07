@@ -6,7 +6,7 @@ import classes from "./Stats.module.css";
 const BattingStats = (props) => {
   const headers = [
     { key: "order", label: "", width: 30 },
-    { key: "Name", label: "姓名", width: 70 },
+    { key: "Name", label: "姓名", width: 80 },
     { key: "Team Name", label: "隊伍", width: 60 },
     { key: "G", label: "G", width: 50 },
     { key: "AB", label: "AB", width: 50 },

@@ -1,68 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
-import playerPitchingStats from "./playerStats.json";
+// import playerPitchingStats from "./playerStats.json";
 import classes from "./Stats.module.css";
 
-const PitchingStats = () => {
+const PitchingStats = (props) => {
   const headers = [
     { key: "order", label: "", width: 30 },
-    { key: "playerName", label: "姓名", width: 70 },
-    { key: "team", label: "Team", width: 60 },
-    { key: "win", label: "W", width: 50 },
-    { key: "lose", label: "L", width: 50 },
-    { key: "earnedRunAverage", label: "ERA", width: 50 },
-    { key: "gamePitched", label: "G", width: 50 },
-    { key: "inningPitched", label: "IP", width: 50 },
-    { key: "hit", label: "H", width: 50 },
-    { key: "run", label: "R", width: 50 },
-    { key: "earnedRun", label: "ER", width: 50 },
-    { key: "homerun", label: "HR", width: 50 },
-    { key: "hitBatsmen", label: "HB", width: 50 },
-    { key: "basedOnBall", label: "BB", width: 50 },
-    { key: "strikeOut", label: "SO", width: 50 },
-    { key: "walkAndHitPerInningPitched", label: "WHIP", width: 50 },
-    { key: "hittingAverageAllowed", label: ".AVG", width: 50 },
+    { key: "Name", label: "姓名", width: 80 },
+    { key: "Team Name", label: "Team", width: 60 },
+    { key: "W", label: "W", width: 50 },
+    { key: "L", label: "L", width: 50 },
+    { key: "earnedRunAverage", label: "ERA", width: 60 },
+    { key: "G", label: "G", width: 50 },
+    { key: "GS", label: "GS", width: 50 },
+    { key: "CG", label: "CG", width: 50 },
+    { key: "SHO", label: "SHO", width: 60 },
+    { key: "SV", label: "SV", width: 50 },
+    { key: "HLD", label: "HLD", width: 60 },
+    { key: "IP", label: "IP", width: 50 },
+    { key: "H", label: "H", width: 50 },
+    { key: "R", label: "R", width: 50 },
+    { key: "ER", label: "ER", width: 50 },
+    { key: "HR", label: "HR", width: 50 },
+    { key: "HBP", label: "HBP", width: 60 },
+    { key: "BB", label: "BB", width: 50 },
+    { key: "SO", label: "SO", width: 50 },
+    { key: "walkAndHitPerInningPitched", label: "WHIP", width: 70 },
+    { key: "hittingAverageAllowed", label: ".AVG", width: 60 },
   ];
 
-  const calIP = (player) => {
-    return parseInt(player.IPx3 / 3) + (player.IPx3 % 3) * 0.1;
-  };
-
-  const calERA = (player) => {
-    return ((player.earnedRun * 7) / (player.IPx3 / 3)).toFixed(2);
-  };
-
-  const calWHIP = (player) => {
-    return (
-      (player.hitAllowed + player.basedOnBallAllowed) /
-      (player.IPx3 / 3)
-    ).toFixed(2);
-  };
-
-  const calAVG = (player) => {
-    return (player.hitAllowed / player.atBatFaced).toFixed(3);
-  };
-
-  const calPlayerStats = playerPitchingStats
-    .filter((player) => player.gamePitched > 0)
-    .map((player) => {
-      return {
-        ...playerPitchingStats[playerPitchingStats.indexOf(player)],
-        inningPitched: calIP(player),
-        earnedRunAverage: calERA(player),
-        walkAndHitPerInningPitched: calWHIP(player),
-        hittingAverageAllowed: calAVG(player),
-      };
-    });
-
-  const [sortPlayerStats, setSortPlayerStats] = useState(
-    [...calPlayerStats].sort(function (a, b) {
-      return a.earnedRunAverage - b.earnedRunAverage;
-    })
-  );
+  const playerPitchingStats = props.playerStats;
+  const [sortPlayerStats, setSortPlayerStats] = useState(playerPitchingStats);
   const [sortIncreasing, setSortIncreasing] = useState(true);
   const [selectedItem, setSelectedItem] = useState("earnedRunAverage");
+
+  useEffect(() => {
+    setSortPlayerStats(playerPitchingStats);
+  }, [playerPitchingStats]);
 
   const onSortPlayerStats = (key) => {
     if (
@@ -167,22 +142,27 @@ const PitchingStats = () => {
         <tbody>
           {sortPlayerStats.map((player) => {
             return (
-              <tr key={player.id}>
+              <tr key={`${player.ID}${sortPlayerStats.indexOf(player) + 1}`}>
                 <td>{sortPlayerStats.indexOf(player) + 1}</td>
-                <td>{player.playerName}</td>
-                <td>{player.team}</td>
-                <td>{player.win}</td>
-                <td>{player.lose}</td>
+                <td>{player.Name}</td>
+                <td>{player["Team Name"]}</td>
+                <td>{player.W}</td>
+                <td>{player.L}</td>
                 <td>{player.earnedRunAverage}</td>
-                <td>{player.gamePitched}</td>
-                <td>{player.inningPitched}</td>
-                <td>{player.hitAllowed}</td>
-                <td>{player.runAllowed}</td>
-                <td>{player.earnedRun}</td>
-                <td>{player.homerunAllowed}</td>
-                <td>{player.hitBatsmen}</td>
-                <td>{player.basedOnBallAllowed}</td>
-                <td>{player.strikeOutPitched}</td>
+                <td>{player.G}</td>
+                <td>{player.GS}</td>
+                <td>{player.CG}</td>
+                <td>{player.SHO}</td>
+                <td>{player.SV}</td>
+                <td>{player.HLD}</td>
+                <td>{player.IP}</td>
+                <td>{player.H}</td>
+                <td>{player.R}</td>
+                <td>{player.ER}</td>
+                <td>{player.HR}</td>
+                <td>{player.HBP}</td>
+                <td>{player.BB}</td>
+                <td>{player.SO}</td>
                 <td>{player.walkAndHitPerInningPitched}</td>
                 <td>{player.hittingAverageAllowed}</td>
               </tr>

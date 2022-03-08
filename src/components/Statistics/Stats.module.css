@@ -1,6 +1,7 @@
 .statsTable {
   max-width: 80%;
   margin: auto;
+  margin-bottom: 10px;
   text-align: center;
   margin-top: 1em;
   font-size: 0.5rem;
@@ -55,7 +56,7 @@
 
 .statsSelector {
   margin: 10px;
-  width: 80px;
+  width: 100px;
   height: 2em;
   padding: 1px;
   position: relative;

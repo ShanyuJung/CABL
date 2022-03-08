@@ -5,6 +5,7 @@
   margin-top: 1em;
   font-size: 1em;
   min-width: 700px;
+  background-color: aliceblue;
 }
 
 td,
@@ -17,7 +18,7 @@ h1 {
   margin: 1em 15% 1em 0;
 }
 
-.respTable {
+/* .respTable {
   overflow-y: scroll;
   margin: 5px;
-}
+} */

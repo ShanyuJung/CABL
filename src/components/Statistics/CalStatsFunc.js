@@ -71,3 +71,21 @@ export const calWHIP = (player) => {
 export const calAVGP = (player) => {
   return (parseInt(player.H) / parseInt(player.BF)).toFixed(3);
 };
+
+export const csvJSON = (csv) => {
+  const rowSeparator = "\r\n";
+  const columnSeparator = ",";
+  let lines = csv.split(rowSeparator);
+  let result = [];
+  let headers = lines[0].split(columnSeparator);
+  lines.splice(0, 1);
+  for (let line of lines) {
+    let columns = line.split(columnSeparator);
+    let row = {};
+    for (let header of headers) {
+      row[header] = columns[headers.indexOf(header)];
+    }
+    result.push(row);
+  }
+  return JSON.stringify(result);
+};

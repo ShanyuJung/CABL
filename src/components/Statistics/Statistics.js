@@ -3,6 +3,7 @@ import { useState } from "react";
 import PitchingStats from "./PitchingStats";
 import classes from "./Stats.module.css";
 import initBattingStats from "./initBattingStats.json";
+import StatsDetail from "./StatsDetail.json";
 import {
   calAVG,
   calOBP,
@@ -11,68 +12,31 @@ import {
   calERA,
   calWHIP,
   calAVGP,
+  csvJSON,
 } from "./CalStatsFunc";
 
 const Statistics = (props) => {
-  const dataRange = [
-    "1990",
-    "1991",
-    "1992",
-    "1993",
-    "1994",
-    "1995",
-    "1996",
-    "1997",
-    "1998",
-    "1999",
-    "2000",
-    "2001",
-    "2002",
-    "2003",
-    "2004",
-    "2005",
-    "2006",
-    "2007",
-    "2008",
-    "2009",
-    "2010",
-    "2011",
-    "2012",
-    "2013",
-    "2014",
-    "2015",
-    "2016",
-    "2017",
-    "2018",
-    "2019",
-    "2020",
-    "2021",
-  ];
   const [statsType, setStatsType] = useState(true);
-  const [selectedYear, setSelectedYear] = useState("2021");
+  const [selectedYear, setSelectedYear] = useState([
+    {
+      year: "2021",
+      annual: "三十二",
+      games: "120",
+    },
+  ]);
   const [playerStats, setPlayerStats] = useState(initBattingStats);
+  const [statsMode, setStatsMode] = useState("partial");
 
-  const rowSeparator = "\r\n";
-  const columnSeparator = ",";
-  function csvJSON(csv) {
-    let lines = csv.split(rowSeparator);
-    let result = [];
-    var headers = lines[0].split(columnSeparator);
-    lines.splice(0, 1);
-    for (let line of lines) {
-      let columns = line.split(columnSeparator);
-      let row = {};
-      for (let header of headers) {
-        row[header] = columns[headers.indexOf(header)];
-      }
-      result.push(row);
-    }
-    return JSON.stringify(result);
-  }
+  const selectModeHandler = (event) => {
+    setStatsMode(`${event.target.value}`);
+  };
 
   const selectYearHandler = (event) => {
     setPlayerStats([]);
-    setSelectedYear(event.target.value);
+    setSelectedYear(
+      StatsDetail.filter((year) => year.year === event.target.value)
+    );
+
     fetch(
       `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/${
         statsType ? "battings" : "pitchings"
@@ -125,7 +89,7 @@ const Statistics = (props) => {
 
   const BattingStatsHandler = () => {
     fetch(
-      `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/battings/${selectedYear}.csv`,
+      `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/battings/${selectedYear[0].year}.csv`,
       {
         method: "GET",
       }
@@ -157,7 +121,7 @@ const Statistics = (props) => {
 
   const PitchingStatsHandler = () => {
     fetch(
-      `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/pitchings/${selectedYear}.csv`,
+      `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/pitchings/${selectedYear[0].year}.csv`,
       {
         method: "GET",
       }
@@ -186,23 +150,34 @@ const Statistics = (props) => {
       });
   };
 
-  console.log(playerStats);
+  // console.log(playerStats);
+  // console.log(statsMode);
+  // console.log(selectedYear);
 
   return (
     <>
       <div className={classes["flex-container"]}>
         <div className={classes.selectLabel}>年度</div>
         <select
-          name="year"
+          id="modeSelector"
+          className={classes.statsSelector}
+          onChange={selectModeHandler}
+        >
+          <option value="partial">{statsType ? "規定打席" : "規定局數"}</option>
+          <option value="all">{"全部成績"}</option>
+        </select>
+
+        <div className={classes.selectLabel}>年度</div>
+        <select
           id="yearSelector"
           defaultValue="2021"
           className={classes.statsSelector}
           onChange={selectYearHandler}
         >
-          {dataRange.map((year) => {
+          {StatsDetail.map((year) => {
             return (
-              <option value={year} key={year}>
-                {year}
+              <option value={year.year} key={year.year}>
+                {year.year}
               </option>
             );
           })}
@@ -220,8 +195,20 @@ const Statistics = (props) => {
           投球成績
         </button>
       </div>
-      {statsType && <BattingStats playerStats={playerStats} />}
-      {!statsType && <PitchingStats playerStats={playerStats} />}
+      {statsType && (
+        <BattingStats
+          playerStats={playerStats}
+          statsMode={statsMode}
+          selectedYear={selectedYear}
+        />
+      )}
+      {!statsType && (
+        <PitchingStats
+          playerStats={playerStats}
+          statsMode={statsMode}
+          selectedYear={selectedYear}
+        />
+      )}
     </>
   );
 };

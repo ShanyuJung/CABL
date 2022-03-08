@@ -5,7 +5,7 @@ import classes from "./Stats.module.css";
 
 const BattingStats = (props) => {
   const headers = [
-    { key: "order", label: "", width: 30 },
+    { key: "order", label: "", width: 40 },
     { key: "Name", label: "姓名", width: 80 },
     { key: "Team Name", label: "隊伍", width: 60 },
     { key: "G", label: "G", width: 50 },
@@ -32,22 +32,31 @@ const BattingStats = (props) => {
   const [selectedItem, setSelectedItem] = useState("hittingAverage");
 
   useEffect(() => {
-    setSortPlayerStats(playerHittingStats);
-  }, [playerHittingStats]);
+    if (props.statsMode === "partial") {
+      setSortPlayerStats(
+        playerHittingStats.filter(
+          (player) =>
+            parseInt(player.PA) > parseInt(props.selectedYear[0].games) * 3.1
+        )
+      );
+    } else {
+      setSortPlayerStats(playerHittingStats);
+    }
+  }, [playerHittingStats, props.statsMode]);
 
   const onSortPlayerStats = (key) => {
     if (selectedItem === key) {
       setSelectedItem(key);
       if (!sortIncreasing) {
         setSortPlayerStats(
-          [...playerHittingStats].sort(function (a, b) {
+          [...sortPlayerStats].sort(function (a, b) {
             return b[key] - a[key];
           })
         );
         setSortIncreasing(true);
       } else {
         setSortPlayerStats(
-          [...playerHittingStats].sort(function (a, b) {
+          [...sortPlayerStats].sort(function (a, b) {
             return a[key] - b[key];
           })
         );
@@ -56,7 +65,7 @@ const BattingStats = (props) => {
     } else {
       setSelectedItem(key);
       setSortPlayerStats(
-        [...playerHittingStats].sort(function (a, b) {
+        [...sortPlayerStats].sort(function (a, b) {
           return b[key] - a[key];
         })
       );

@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
-// import playerPitchingStats from "./playerStats.json";
+
 import classes from "./Stats.module.css";
 
 const PitchingStats = (props) => {
   const headers = [
-    { key: "order", label: "", width: 30 },
+    { key: "order", label: "", width: 40 },
     { key: "Name", label: "姓名", width: 80 },
     { key: "Team Name", label: "Team", width: 60 },
     { key: "W", label: "W", width: 50 },
@@ -36,8 +36,17 @@ const PitchingStats = (props) => {
   const [selectedItem, setSelectedItem] = useState("earnedRunAverage");
 
   useEffect(() => {
-    setSortPlayerStats(playerPitchingStats);
-  }, [playerPitchingStats]);
+    if (props.statsMode === "partial") {
+      setSortPlayerStats(
+        playerPitchingStats.filter(
+          (player) =>
+            parseInt(player.IP) > parseInt(props.selectedYear[0].games) * 1.1
+        )
+      );
+    } else {
+      setSortPlayerStats(playerPitchingStats);
+    }
+  }, [playerPitchingStats, props.statsMode]);
 
   const onSortPlayerStats = (key) => {
     if (

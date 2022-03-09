@@ -17,8 +17,6 @@ const Standing = () => {
   const [selectedYear, setSelectedYear] = useState("2021");
   const [standingData, setStandingData] = useState([]);
 
-  console.log(standingData.filter((team) => team.Year === selectedYear));
-
   const selectedYearHandler = (event) => {
     setSelectedYear(event.target.value);
   };

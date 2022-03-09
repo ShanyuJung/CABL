@@ -1,7 +1,5 @@
-import Roster from "./Roster";
-
 const TeamHomePage = (props) => {
-  return <Roster team={props.team} />;
+  return <>{props.team.Team}</>;
 };
 
 export default TeamHomePage;

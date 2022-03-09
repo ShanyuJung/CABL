@@ -51,25 +51,31 @@ export const calOPS = (player) => {
 };
 
 export const calIPx3 = (player) => {
-  return Math.trunc(parseInt(player.IP)) + (parseInt(player.IP) % 10) * 3;
+  return parseInt(player.IP) * 3 + (Number(player.IP) % 1).toFixed(2) * 10;
 };
 
 export const calERA = (player) => {
   return (
     (parseInt(player.ER) * 9) /
-    ((Math.trunc(parseInt(player.IP)) * 3 + (parseInt(player.IP) % 10) * 3) / 3)
+    ((parseInt(player.IP) * 3 + (Number(player.IP) % 1).toFixed(2) * 10) / 3)
   ).toFixed(2);
 };
 
 export const calWHIP = (player) => {
   return (
     (parseInt(player.H) + parseInt(player.BB)) /
-    ((Math.trunc(parseInt(player.IP)) * 3 + (parseInt(player.IP) % 10) * 3) / 3)
+    ((parseInt(player.IP) * 3 + (Number(player.IP) % 1).toFixed(2) * 10) / 3)
   ).toFixed(2);
 };
 
 export const calAVGP = (player) => {
-  return (parseInt(player.H) / parseInt(player.BF)).toFixed(3);
+  return (
+    parseInt(player.H) /
+    (parseInt(player.BF) -
+      parseInt(player.BB) -
+      parseInt(player.IBB) -
+      parseInt(player.HBP))
+  ).toFixed(3);
 };
 
 export const csvJSON = (csv) => {
@@ -88,4 +94,11 @@ export const csvJSON = (csv) => {
     result.push(row);
   }
   return JSON.stringify(result);
+};
+
+export const calPTC = (team) => {
+  return (
+    parseInt(team.Win) /
+    (parseInt(team.Win) + parseInt(team.Lose) + parseInt(team.Tie))
+  ).toFixed(3);
 };

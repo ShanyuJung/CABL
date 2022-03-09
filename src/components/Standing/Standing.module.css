@@ -1,0 +1,38 @@
+.flex-container {
+  display: flex;
+  width: 80%;
+  height: 5em;
+  margin: auto;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.yearSelector {
+  margin: 10px;
+  width: 100px;
+  height: 2em;
+  padding: 1px;
+  position: relative;
+  border-radius: 5px;
+  text-align-last: center;
+}
+
+.selectLabel {
+  margin: auto, 1em;
+  padding: 0;
+  height: 2em;
+  font-size: 16px;
+  line-height: 30px;
+  align-items: center;
+}
+
+.standingTable {
+  max-width: 80%;
+  margin: auto;
+  margin-bottom: 10px;
+  text-align: center;
+  margin-top: 1em;
+  font-size: 0.5rem;
+  min-width: 600px;
+  background-color: aliceblue;
+}

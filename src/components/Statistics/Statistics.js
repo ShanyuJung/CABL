@@ -12,6 +12,7 @@ import {
   calERA,
   calWHIP,
   calAVGP,
+  calIPx3,
   csvJSON,
 } from "./CalStatsFunc";
 
@@ -74,6 +75,7 @@ const Statistics = (props) => {
                   earnedRunAverage: calERA(player),
                   walkAndHitPerInningPitched: calWHIP(player),
                   hittingAverageAllowed: calAVGP(player),
+                  IPx3: calIPx3(player),
                 };
               })
               .sort(function (a, b) {
@@ -137,6 +139,7 @@ const Statistics = (props) => {
                 earnedRunAverage: calERA(player),
                 walkAndHitPerInningPitched: calWHIP(player),
                 hittingAverageAllowed: calAVGP(player),
+                IPx3: calIPx3(player),
               };
             })
             .sort(function (a, b) {

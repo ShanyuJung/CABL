@@ -1,6 +1,57 @@
 [
-  { "id": "NTU", "name": "台大" },
-  { "id": "NCHU", "name": "中興" },
-  { "id": "NCTU", "name": "交大" },
-  { "id": "NCCU", "name": "政大" }
+  {
+    "Year": "2021",
+    "Team ID": "ACN",
+    "Old ID": "",
+    "Team": "中信兄弟",
+    "Team Nickname": "中信",
+    "Win": "66",
+    "Lose": "49",
+    "Tie": "5",
+    "winningPercentage": "0.550"
+  },
+  {
+    "Year": "2021",
+    "Team ID": "ADD",
+    "Old ID": "",
+    "Team": "統一7-ELEVEn獅",
+    "Team Nickname": "統一",
+    "Win": "64",
+    "Lose": "51",
+    "Tie": "5",
+    "winningPercentage": "0.533"
+  },
+  {
+    "Year": "2021",
+    "Team ID": "AJL",
+    "Old ID": "",
+    "Team": "樂天桃猿",
+    "Team Nickname": "樂天",
+    "Win": "56",
+    "Lose": "61",
+    "Tie": "3",
+    "winningPercentage": "0.467"
+  },
+  {
+    "Year": "2021",
+    "Team ID": "AEO",
+    "Old ID": "",
+    "Team": "富邦悍將",
+    "Team Nickname": "富邦",
+    "Win": "54",
+    "Lose": "62",
+    "Tie": "4",
+    "winningPercentage": "0.450"
+  },
+  {
+    "Year": "2021",
+    "Team ID": "AAA",
+    "Old ID": "",
+    "Team": "味全龍",
+    "Team Nickname": "味全",
+    "Win": "50",
+    "Lose": "67",
+    "Tie": "3",
+    "winningPercentage": "0.417"
+  }
 ]

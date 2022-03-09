@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
-
 import classes from "./Stats.module.css";
 
 const PitchingStats = (props) => {

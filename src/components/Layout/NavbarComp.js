@@ -13,7 +13,7 @@ const NavbarComp = () => {
     <BrowserRouter>
       <Navbar sticky="top" bg="dark" expand="sm" variant="dark">
         <Container>
-          <Navbar.Brand as={Link} to={"/CPBLData"}>
+          <Navbar.Brand as={Link} to={"/CPBLStats"}>
             CPBL 中華職棒大聯盟數據查詢
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -44,7 +44,7 @@ const NavbarComp = () => {
         </Container>
       </Navbar>
       <Switch>
-        <Route path="/CPBLData">
+        <Route path="/CPBLStats">
           <Home />
         </Route>
         <Route path="/Score">

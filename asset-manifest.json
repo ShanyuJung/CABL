@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/CPBLStats/static/css/main.567bad6c.css",
-    "main.js": "/CPBLStats/static/js/main.fa83f0b5.js",
+    "main.js": "/CPBLStats/static/js/main.26c058af.js",
     "static/js/787.01f9c7dc.chunk.js": "/CPBLStats/static/js/787.01f9c7dc.chunk.js",
     "static/media/backgroundPic.jpg": "/CPBLStats/static/media/backgroundPic.bc57b4a623acb9aff69e.jpg",
     "index.html": "/CPBLStats/index.html",
     "main.567bad6c.css.map": "/CPBLStats/static/css/main.567bad6c.css.map",
-    "main.fa83f0b5.js.map": "/CPBLStats/static/js/main.fa83f0b5.js.map",
+    "main.26c058af.js.map": "/CPBLStats/static/js/main.26c058af.js.map",
     "787.01f9c7dc.chunk.js.map": "/CPBLStats/static/js/787.01f9c7dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.567bad6c.css",
-    "static/js/main.fa83f0b5.js"
+    "static/js/main.26c058af.js"
   ]
 }

@@ -160,7 +160,6 @@ const Statistics = (props) => {
   return (
     <>
       <div className={classes["flex-container"]}>
-        <div className={classes.selectLabel}>年度</div>
         <select
           id="modeSelector"
           className={classes.statsSelector}
@@ -170,7 +169,6 @@ const Statistics = (props) => {
           <option value="all">{"全部成績"}</option>
         </select>
 
-        <div className={classes.selectLabel}>年度</div>
         <select
           id="yearSelector"
           defaultValue="2021"
@@ -198,6 +196,7 @@ const Statistics = (props) => {
           投球成績
         </button>
       </div>
+
       {statsType && (
         <BattingStats
           playerStats={playerStats}

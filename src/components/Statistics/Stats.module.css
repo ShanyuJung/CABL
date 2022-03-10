@@ -27,7 +27,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   border: none;
   height: 2em;
-  width: 90px;
+  min-width: 90px;
   border-radius: 5px;
 }
 
@@ -41,7 +41,7 @@
   color: azure;
   border: none;
   height: 2em;
-  width: 90px;
+  min-width: 90px;
   border-radius: 5px;
 }
 
@@ -64,11 +64,37 @@
   text-align-last: center;
 }
 
-.selectLabel {
+/* .selectLabel {
   margin: auto, 1em;
   padding: auto;
   height: 2em;
   font-size: 16px;
   line-height: 30px;
   align-items: center;
+  min-width: 40px;
+} */
+
+@media (max-width: 1212px) {
+  .statsTable {
+    margin-left: 1%;
+  }
+}
+
+@media (max-width: 568px) {
+  .flex-container {
+    margin-top: 0.5em;
+    display: block;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+  .typeButton,
+  .selectedType {
+    width: 90%;
+    margin: 5px 5%;
+  }
+  .statsSelector {
+    width: 90%;
+    margin: 5px 5%;
+  }
 }

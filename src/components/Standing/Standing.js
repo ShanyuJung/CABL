@@ -6,12 +6,12 @@ import { calPTC } from "../Statistics/CalStatsFunc";
 
 const Standing = () => {
   const headers = [
-    { key: "order", label: "", width: 100 },
-    { key: "Team", label: "隊名", width: 100 },
-    { key: "Win", label: "W", width: 100 },
-    { key: "Lose", label: "L", width: 100 },
-    { key: "Tie", label: "T", width: 100 },
-    { key: "winningPercentage", label: "PTC", width: 100 },
+    { key: "order", label: "", width: 40 },
+    { key: "Team", label: "隊名", width: 120 },
+    { key: "Win", label: "W", width: 50 },
+    { key: "Lose", label: "L", width: 50 },
+    { key: "Tie", label: "T", width: 50 },
+    { key: "winningPercentage", label: "PTC", width: 60 },
   ];
 
   const [selectedYear, setSelectedYear] = useState("2021");
@@ -66,7 +66,7 @@ const Standing = () => {
   return (
     <>
       <div className={classes["flex-container"]}>
-        <div className={classes.selectLabel}>年度</div>
+        {/* <div className={classes.selectLabel}>年度</div> */}
         <select
           id="yearSelector"
           defaultValue="2021"
@@ -78,52 +78,55 @@ const Standing = () => {
           })}
         </select>
       </div>
-      <Table striped bordered hover className={classes.standingTable}>
-        <colgroup>
-          {headers.map((row) => (
-            <col width={`${row.width}px`} key={row.key} />
-          ))}
-        </colgroup>
-        <thead>
-          <tr>
+
+      <div className="table-responsive">
+        <Table striped bordered hover className={classes.standingTable}>
+          <colgroup>
             {headers.map((row) => (
-              <th key={row.key} nowrap="nowrap">
-                {row.label}
-              </th>
+              <col width={`${row.width}px`} key={row.key} />
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {standingData
-            .filter((team) => team.Year === selectedYear)
-            .sort(function (a, b) {
-              return b.winningPercentage - a.winningPercentage;
-            })
-            .map((team) => {
-              return (
-                <tr key={`${team.Year}${team["Team ID"]}`}>
-                  <td>
-                    {standingData
-                      .filter((team) => team.Year === selectedYear)
-                      .sort(function (a, b) {
-                        return b.winningPercentage - a.winningPercentage;
-                      })
-                      .indexOf(team) + 1}
-                  </td>
-                  <td>{team.Team}</td>
-                  <td>{team.Win}</td>
-                  <td>{team.Lose}</td>
-                  <td>{team.Tie}</td>
-                  <td>
-                    {team.winningPercentage !== 1
-                      ? team.winningPercentage.toString().substring(1)
-                      : team.winningPercentage.toString()}
-                  </td>
-                </tr>
-              );
-            })}
-        </tbody>
-      </Table>
+          </colgroup>
+          <thead>
+            <tr>
+              {headers.map((row) => (
+                <th key={row.key} nowrap="nowrap">
+                  {row.label}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {standingData
+              .filter((team) => team.Year === selectedYear)
+              .sort(function (a, b) {
+                return b.winningPercentage - a.winningPercentage;
+              })
+              .map((team) => {
+                return (
+                  <tr key={`${team.Year}${team["Team ID"]}`}>
+                    <td>
+                      {standingData
+                        .filter((team) => team.Year === selectedYear)
+                        .sort(function (a, b) {
+                          return b.winningPercentage - a.winningPercentage;
+                        })
+                        .indexOf(team) + 1}
+                    </td>
+                    <td>{team.Team}</td>
+                    <td>{team.Win}</td>
+                    <td>{team.Lose}</td>
+                    <td>{team.Tie}</td>
+                    <td>
+                      {team.winningPercentage !== 1
+                        ? team.winningPercentage.toString().substring(1)
+                        : team.winningPercentage.toString()}
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </Table>
+      </div>
     </>
   );
 };

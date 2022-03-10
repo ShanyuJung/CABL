@@ -1,6 +1,6 @@
 .flex-container {
   display: flex;
-  width: 80%;
+  width: 70%;
   height: 5em;
   margin: auto;
   justify-content: flex-end;
@@ -24,15 +24,31 @@
   font-size: 16px;
   line-height: 30px;
   align-items: center;
+  min-width: 30px;
 }
 
 .standingTable {
-  max-width: 80%;
+  max-width: 70%;
   margin: auto;
   margin-bottom: 10px;
   text-align: center;
   margin-top: 1em;
   font-size: 0.5rem;
-  min-width: 600px;
+  min-width: 370px;
   background-color: aliceblue;
+}
+
+@media (max-width: 568px) {
+  .flex-container {
+    margin-top: 0.5em;
+    display: block;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+  }
+
+  .yearSelector {
+    width: 90%;
+    margin: 5px 5%;
+  }
 }

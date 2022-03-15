@@ -1,0 +1,46 @@
+.card {
+  background-color: aliceblue;
+  width: 800px;
+  margin: auto;
+  margin-top: 5%;
+  padding-bottom: 40px;
+  border: 10px solid gray;
+  min-width: 380px;
+}
+
+.cardHeader {
+  margin-bottom: 5px;
+  padding-bottom: 20px;
+}
+
+.logo {
+  height: 10rem;
+  margin: 10px;
+  /* background-color: red; */
+}
+
+.teamName {
+  margin-top: 5%;
+}
+
+.cardBody {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-bottom: 0px;
+  }
+  .card {
+    width: 90%;
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  .cardHeader {
+    display: inline-block;
+    padding-bottom: 0px;
+  }
+  .card p {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}

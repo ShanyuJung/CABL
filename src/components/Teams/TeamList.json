@@ -8,7 +8,13 @@
     "Win": "66",
     "Lose": "49",
     "Tie": "5",
-    "winningPercentage": "0.550"
+    "winningPercentage": "0.550",
+    "generalManager": "劉志威",
+    "manager": "林威助",
+    "mainField": "台中洲際棒球場",
+    "teamWebsite": "http://www.brothers.tw/",
+    "teamHistory": "兄弟象(1990-2013) - 中信兄弟(2014 - 至今)",
+    "logo": "logo_brothers_large.png"
   },
   {
     "Year": "2021",
@@ -19,7 +25,13 @@
     "Win": "64",
     "Lose": "51",
     "Tie": "5",
-    "winningPercentage": "0.533"
+    "winningPercentage": "0.533",
+    "generalManager": "蘇泰安",
+    "manager": "林岳平",
+    "mainField": "台南棒球場",
+    "teamWebsite": "https://www.uni-lions.com.tw/",
+    "teamHistory": "統一獅(1990-2007) - 統一7-ELEVEn獅(2008 - 至今 )",
+    "logo": "logo_lions_large.png"
   },
   {
     "Year": "2021",
@@ -30,7 +42,13 @@
     "Win": "56",
     "Lose": "61",
     "Tie": "3",
-    "winningPercentage": "0.467"
+    "winningPercentage": "0.467",
+    "generalManager": "浦韋青",
+    "manager": "曾豪駒",
+    "mainField": "桃園國際棒球場",
+    "teamWebsite": "https://monkeys.rakuten.com.tw/",
+    "teamHistory": "第一金剛(2003) - La new熊(2004-2010) - Lamigo 桃猿(2011-2019) - 樂天桃猿(2020 - 至今)",
+    "logo": "logo_monkeys_large.png"
   },
   {
     "Year": "2021",
@@ -41,7 +59,13 @@
     "Win": "54",
     "Lose": "62",
     "Tie": "4",
-    "winningPercentage": "0.450"
+    "winningPercentage": "0.450",
+    "generalManager": "林華韋",
+    "manager": "丘昌榮",
+    "mainField": "新莊棒球場",
+    "teamWebsite": "https://www.fubonguardians.com/",
+    "teamHistory": "俊國熊(1993-1995) - 興農熊(1996上半季) - 興農牛(1996下半季 - 2012) - 義大犀牛(2013-2016) - 富邦悍將(2017 - 至今)",
+    "logo": "logo_fubon_large.png"
   },
   {
     "Year": "2021",
@@ -52,6 +76,12 @@
     "Win": "50",
     "Lose": "67",
     "Tie": "3",
-    "winningPercentage": "0.417"
+    "winningPercentage": "0.417",
+    "generalManager": "丁仲緯",
+    "manager": "葉君璋",
+    "mainField": "天母棒球場",
+    "teamWebsite": "https://www.wdragons.com/CWS",
+    "teamHistory": "味全龍(1990-1999, 2019 - 至今)",
+    "logo": "logo_dragon_large.png"
   }
 ]

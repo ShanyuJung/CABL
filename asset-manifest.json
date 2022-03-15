@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/CPBLStats/static/css/main.567bad6c.css",
-    "main.js": "/CPBLStats/static/js/main.26c058af.js",
+    "main.css": "/CPBLStats/static/css/main.448fe068.css",
+    "main.js": "/CPBLStats/static/js/main.07a0dedc.js",
     "static/js/787.01f9c7dc.chunk.js": "/CPBLStats/static/js/787.01f9c7dc.chunk.js",
     "static/media/backgroundPic.jpg": "/CPBLStats/static/media/backgroundPic.bc57b4a623acb9aff69e.jpg",
+    "static/media/logo_monkeys_large.png": "/CPBLStats/static/media/logo_monkeys_large.20f671d07b50ef397cd7.png",
+    "static/media/logo_lions_large.png": "/CPBLStats/static/media/logo_lions_large.d95b1a806d44cdc5821d.png",
+    "static/media/logo_brothers_large.png": "/CPBLStats/static/media/logo_brothers_large.6ee2e342de904a02d088.png",
+    "static/media/logo_fubon_large.png": "/CPBLStats/static/media/logo_fubon_large.f9f6fab36bef749053d5.png",
+    "static/media/logo_dragon_large.png": "/CPBLStats/static/media/logo_dragon_large.22743710615b7bd1cb77.png",
     "index.html": "/CPBLStats/index.html",
-    "main.567bad6c.css.map": "/CPBLStats/static/css/main.567bad6c.css.map",
-    "main.26c058af.js.map": "/CPBLStats/static/js/main.26c058af.js.map",
+    "main.448fe068.css.map": "/CPBLStats/static/css/main.448fe068.css.map",
+    "main.07a0dedc.js.map": "/CPBLStats/static/js/main.07a0dedc.js.map",
     "787.01f9c7dc.chunk.js.map": "/CPBLStats/static/js/787.01f9c7dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.567bad6c.css",
-    "static/js/main.26c058af.js"
+    "static/css/main.448fe068.css",
+    "static/js/main.07a0dedc.js"
   ]
 }

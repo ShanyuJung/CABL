@@ -2,7 +2,7 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import Home from "../Home";
-import Score from "../Score/Score";
+// import Score from "../Score/Score";
 import Statistics from "../Statistics/Statistics";
 import teamList from "../Teams/TeamList.json";
 import TeamHomePage from "../Teams/TeamHomePage";
@@ -19,9 +19,9 @@ const NavbarComp = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to={"/Score"}>
+              {/* <Nav.Link as={Link} to={"/Score"}>
                 比賽成績
-              </Nav.Link>
+              </Nav.Link> */}
               <Nav.Link as={Link} to={"/Standing"}>
                 年度戰績
               </Nav.Link>
@@ -47,9 +47,9 @@ const NavbarComp = () => {
         <Route path="/CPBLStats">
           <Home />
         </Route>
-        <Route path="/Score">
+        {/* <Route path="/Score">
           <Score />
-        </Route>
+        </Route> */}
         <Route path="/Standing">
           <Standing />
         </Route>

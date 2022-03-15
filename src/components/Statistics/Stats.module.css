@@ -5,7 +5,7 @@
   text-align: center;
   margin-top: 1em;
   font-size: 0.5rem;
-  min-width: 1200px;
+  min-width: 1400px;
   background-color: aliceblue;
 }
 
@@ -74,7 +74,7 @@
   min-width: 40px;
 } */
 
-@media (max-width: 1212px) {
+@media (max-width: 1414px) {
   .statsTable {
     margin-left: 1%;
   }

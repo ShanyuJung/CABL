@@ -68,15 +68,15 @@ export const calWHIP = (player) => {
   ).toFixed(2);
 };
 
-export const calAVGP = (player) => {
-  return (
-    parseInt(player.H) /
-    (parseInt(player.BF) -
-      parseInt(player.BB) -
-      parseInt(player.IBB) -
-      parseInt(player.HBP))
-  ).toFixed(3);
-};
+// export const calAVGP = (player) => {
+//   return (
+//     parseInt(player.H) /
+//     (parseInt(player.BF) -
+//       parseInt(player.BB) -
+//       parseInt(player.IBB) -
+//       parseInt(player.HBP))
+//   ).toFixed(3);
+// };
 
 export const csvJSON = (csv) => {
   const rowSeparator = "\r\n";
@@ -102,3 +102,7 @@ export const calPTC = (team) => {
     (parseInt(team.Win) + parseInt(team.Lose) + parseInt(team.Tie))
   ).toFixed(3);
 };
+
+// export const calOPSPlus = (player, avgOPS) => {
+//   return parseInt(player.onBasePlusSlugging) / parseInt(avgOPS);
+// };

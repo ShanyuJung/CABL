@@ -8,6 +8,16 @@
   min-width: 380px;
 }
 
+.websiteLink {
+  font-size: 17px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.websiteLink:hover {
+  color: rgb(51, 51, 255);
+}
+
 .cardHeader {
   margin-bottom: 5px;
   padding-bottom: 20px;

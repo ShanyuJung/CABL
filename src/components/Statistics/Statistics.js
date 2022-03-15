@@ -1,8 +1,7 @@
 import BattingStats from "./BattingStats";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PitchingStats from "./PitchingStats";
 import classes from "./Stats.module.css";
-import initBattingStats from "./initBattingStats.json";
 import StatsDetail from "./StatsDetail.json";
 import {
   calAVG,
@@ -11,7 +10,6 @@ import {
   calOPS,
   calERA,
   calWHIP,
-  calAVGP,
   calIPx3,
   csvJSON,
 } from "./CalStatsFunc";
@@ -25,23 +23,19 @@ const Statistics = (props) => {
       games: "120",
     },
   ]);
-  const [playerStats, setPlayerStats] = useState(initBattingStats);
+  const [playerStats, setPlayerStats] = useState([]);
   const [statsMode, setStatsMode] = useState("partial");
+  const [avgStats, setAvgStats] = useState("");
 
   const selectModeHandler = (event) => {
     setStatsMode(`${event.target.value}`);
   };
 
-  const selectYearHandler = (event) => {
-    setPlayerStats([]);
-    setSelectedYear(
-      StatsDetail.filter((year) => year.year === event.target.value)
-    );
-
+  useEffect(() => {
     fetch(
       `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/${
         statsType ? "battings" : "pitchings"
-      }/${event.target.value}.csv`,
+      }/${selectedYear[0].year}.csv`,
       {
         method: "GET",
       }
@@ -50,6 +44,35 @@ const Statistics = (props) => {
       .then((data) => {
         if (statsType) {
           const playerHittingStats = JSON.parse(csvJSON(data)).slice(0, -1);
+          const totalStats = {
+            H: `${playerHittingStats
+              .map((player) => player.H)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+            AB: `${playerHittingStats
+              .map((player) => player.AB)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+            TB: `${playerHittingStats
+              .map((player) => player.TB)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+            BB: `${playerHittingStats
+              .map((player) => player.BB)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+            IBB: `${playerHittingStats
+              .map((player) => player.IBB)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+            HBP: `${playerHittingStats
+              .map((player) => player.HBP)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+            SF: `${playerHittingStats
+              .map((player) => player.SF)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+          };
+
+          setAvgStats({
+            avgOBP: calOBP(totalStats),
+            avgSLG: calSLG(totalStats),
+          });
+
           setPlayerStats(
             playerHittingStats
               .map((player) => {
@@ -67,6 +90,19 @@ const Statistics = (props) => {
           );
         } else {
           const playerPitchingStats = JSON.parse(csvJSON(data)).slice(0, -1);
+          const totalStats = {
+            IPx3: `${playerPitchingStats
+              .map((player) => calIPx3(player))
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+            ER: `${playerPitchingStats
+              .map((player) => player.ER)
+              .reduce((prev, next) => parseInt(prev) + parseInt(next))}`,
+          };
+
+          setAvgStats({
+            avgERA: (parseInt(totalStats.ER) / parseInt(totalStats.IPx3)) * 27,
+          });
+
           setPlayerStats(
             playerPitchingStats
               .map((player) => {
@@ -74,7 +110,6 @@ const Statistics = (props) => {
                   ...playerPitchingStats[playerPitchingStats.indexOf(player)],
                   earnedRunAverage: calERA(player),
                   walkAndHitPerInningPitched: calWHIP(player),
-                  hittingAverageAllowed: calAVGP(player),
                   IPx3: calIPx3(player),
                 };
               })
@@ -87,70 +122,21 @@ const Statistics = (props) => {
       .catch((e) => {
         console.log(e);
       });
+  }, [selectedYear, statsType]);
+
+  const selectYearHandler = (event) => {
+    setPlayerStats([]);
+    setSelectedYear(
+      StatsDetail.filter((year) => year.year === event.target.value)
+    );
   };
 
   const BattingStatsHandler = () => {
-    fetch(
-      `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/battings/${selectedYear[0].year}.csv`,
-      {
-        method: "GET",
-      }
-    )
-      .then((res) => res.text())
-      .then((data) => {
-        const playerHittingStats = JSON.parse(csvJSON(data)).slice(0, -1);
-        setPlayerStats(
-          playerHittingStats
-            .map((player) => {
-              return {
-                ...playerHittingStats[playerHittingStats.indexOf(player)],
-                hittingAverage: calAVG(player),
-                onBasePercentage: calOBP(player),
-                sluggingPercentage: calSLG(player),
-                onBasePlusSlugging: calOPS(player),
-              };
-            })
-            .sort(function (a, b) {
-              return b.hittingAverage - a.hittingAverage;
-            })
-        );
-        setStatsType(true);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    setStatsType(true);
   };
 
   const PitchingStatsHandler = () => {
-    fetch(
-      `https://raw.githubusercontent.com/ShanyuJung/cpbl-opendata/master/CPBL/pitchings/${selectedYear[0].year}.csv`,
-      {
-        method: "GET",
-      }
-    )
-      .then((res) => res.text())
-      .then((data) => {
-        const playerPitchingStats = JSON.parse(csvJSON(data)).slice(0, -1);
-        setPlayerStats(
-          playerPitchingStats
-            .map((player) => {
-              return {
-                ...playerPitchingStats[playerPitchingStats.indexOf(player)],
-                earnedRunAverage: calERA(player),
-                walkAndHitPerInningPitched: calWHIP(player),
-                hittingAverageAllowed: calAVGP(player),
-                IPx3: calIPx3(player),
-              };
-            })
-            .sort(function (a, b) {
-              return a.earnedRunAverage - b.earnedRunAverage;
-            })
-        );
-        setStatsType(false);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    setStatsType(false);
   };
 
   // console.log(playerStats);
@@ -202,6 +188,7 @@ const Statistics = (props) => {
           playerStats={playerStats}
           statsMode={statsMode}
           selectedYear={selectedYear}
+          avgStats={avgStats}
         />
       )}
       {!statsType && (
@@ -209,6 +196,7 @@ const Statistics = (props) => {
           playerStats={playerStats}
           statsMode={statsMode}
           selectedYear={selectedYear}
+          avgStats={avgStats}
         />
       )}
     </>

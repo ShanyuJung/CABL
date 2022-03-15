@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import SortButton from "../UI/SortButton";
+import { calOPSPlus } from "./CalStatsFunc";
 import classes from "./Stats.module.css";
 
 const BattingStats = (props) => {
@@ -24,9 +25,20 @@ const BattingStats = (props) => {
     { key: "onBasePercentage", label: ".OBP", width: 50 },
     { key: "sluggingPercentage", label: ".SLG", width: 50 },
     { key: "onBasePlusSlugging", label: ".OPS", width: 50 },
+    { key: "OPSPlus", label: "OPS+", width: 50 },
   ];
 
-  const playerHittingStats = props.playerStats;
+  const playerHittingStats = props.playerStats.map((player) => {
+    return {
+      ...props.playerStats[props.playerStats.indexOf(player)],
+      OPSPlus: `${(
+        (Number(player.onBasePercentage) / Number(props.avgStats.avgOBP) +
+          Number(player.sluggingPercentage) / Number(props.avgStats.avgSLG) -
+          1) *
+        100
+      ).toFixed(0)}`,
+    };
+  });
   const [sortPlayerStats, setSortPlayerStats] = useState(playerHittingStats);
   const [sortIncreasing, setSortIncreasing] = useState(true);
   const [selectedItem, setSelectedItem] = useState("hittingAverage");
@@ -39,10 +51,12 @@ const BattingStats = (props) => {
             parseInt(player.PA) > parseInt(props.selectedYear[0].games) * 3.1
         )
       );
+      setSelectedItem("hittingAverage");
     } else {
       setSortPlayerStats(playerHittingStats);
+      setSelectedItem("hittingAverage");
     }
-  }, [playerHittingStats, props.statsMode]);
+  }, [props.playerStats, props.statsMode]);
 
   const onSortPlayerStats = (key) => {
     if (selectedItem === key) {
@@ -136,6 +150,7 @@ const BattingStats = (props) => {
                 <td>{player.onBasePercentage}</td>
                 <td>{player.sluggingPercentage}</td>
                 <td>{player.onBasePlusSlugging}</td>
+                <td>{player.OPSPlus}</td>
               </tr>
             );
           })}

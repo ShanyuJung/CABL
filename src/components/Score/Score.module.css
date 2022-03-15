@@ -1,6 +1,14 @@
 .score {
+  max-width: 1084px;
   width: 90%;
-  padding: auto;
-  margin: auto;
-  margin-top: 2em;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 300px auto;
+  margin-top: 5em;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }

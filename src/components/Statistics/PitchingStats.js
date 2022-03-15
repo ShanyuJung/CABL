@@ -26,10 +26,18 @@ const PitchingStats = (props) => {
     { key: "BB", label: "BB", width: 50 },
     { key: "SO", label: "SO", width: 50 },
     { key: "walkAndHitPerInningPitched", label: "WHIP", width: 70 },
-    { key: "hittingAverageAllowed", label: ".AVG", width: 60 },
+    { key: "ERAPlus", label: "ERA+", width: 70 },
   ];
 
-  const playerPitchingStats = props.playerStats;
+  const playerPitchingStats = props.playerStats.map((player) => {
+    return {
+      ...props.playerStats[props.playerStats.indexOf(player)],
+      ERAPlus: (
+        (props.avgStats.avgERA / Number(player.earnedRunAverage)) *
+        100
+      ).toFixed(0),
+    };
+  });
   const [sortPlayerStats, setSortPlayerStats] = useState(playerPitchingStats);
   const [sortIncreasing, setSortIncreasing] = useState(true);
   const [selectedItem, setSelectedItem] = useState("earnedRunAverage");
@@ -42,10 +50,12 @@ const PitchingStats = (props) => {
             parseInt(player.IP) > parseInt(props.selectedYear[0].games) * 1.1
         )
       );
+      setSelectedItem("earnedRunAverage");
     } else {
       setSortPlayerStats(playerPitchingStats);
+      setSelectedItem("earnedRunAverage");
     }
-  }, [playerPitchingStats, props.statsMode]);
+  }, [props.playerStats, props.statsMode]);
 
   const onSortPlayerStats = (key) => {
     if (
@@ -172,7 +182,7 @@ const PitchingStats = (props) => {
                 <td>{player.BB}</td>
                 <td>{player.SO}</td>
                 <td>{player.walkAndHitPerInningPitched}</td>
-                <td>{player.hittingAverageAllowed}</td>
+                <td>{player.ERAPlus}</td>
               </tr>
             );
           })}

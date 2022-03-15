@@ -2,7 +2,6 @@ import classes from "./TeamHomePage.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 
 const TeamHomePage = (props) => {
-  console.log(props.team);
   return (
     <Container className={classes.card}>
       <Row className={classes.cardHeader}>
@@ -33,7 +32,13 @@ const TeamHomePage = (props) => {
         </Col>
         <Col md={5}>
           <p>官方網站</p>
-          <h6>{props.team.teamWebsite}</h6>
+          <a
+            href={props.team.teamWebsite}
+            className={classes.websiteLink}
+            target="_blank"
+          >
+            {props.team.teamWebsite}
+          </a>
         </Col>
       </Row>
     </Container>

@@ -32,10 +32,8 @@ const PitchingStats = (props) => {
   const playerPitchingStats = props.playerStats.map((player) => {
     return {
       ...props.playerStats[props.playerStats.indexOf(player)],
-      ERAPlus: (
-        (Number(props.avgStats.avgERA) / Number(player.earnedRunAverage)) *
-        100
-      ).toFixed(0),
+      ERAPlus:
+        (Number(props.avgStats.avgERA) / Number(player.earnedRunAverage)) * 100,
     };
   });
   const [sortPlayerStats, setSortPlayerStats] = useState(playerPitchingStats);
@@ -182,7 +180,7 @@ const PitchingStats = (props) => {
                 <td>{player.BB}</td>
                 <td>{player.SO}</td>
                 <td>{Number(player.walkAndHitPerInningPitched).toFixed(2)}</td>
-                <td>{player.ERAPlus}</td>
+                <td>{Number(player.ERAPlus).toFixed(1)}</td>
               </tr>
             );
           })}

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CPBLStats/static/css/main.448fe068.css",
-    "main.js": "/CPBLStats/static/js/main.8c70733d.js",
+    "main.js": "/CPBLStats/static/js/main.699a1bd2.js",
     "static/js/787.01f9c7dc.chunk.js": "/CPBLStats/static/js/787.01f9c7dc.chunk.js",
     "static/media/backgroundPic.jpg": "/CPBLStats/static/media/backgroundPic.bc57b4a623acb9aff69e.jpg",
     "static/media/logo_monkeys_large.png": "/CPBLStats/static/media/logo_monkeys_large.20f671d07b50ef397cd7.png",
@@ -11,11 +11,11 @@
     "static/media/logo_dragon_large.png": "/CPBLStats/static/media/logo_dragon_large.22743710615b7bd1cb77.png",
     "index.html": "/CPBLStats/index.html",
     "main.448fe068.css.map": "/CPBLStats/static/css/main.448fe068.css.map",
-    "main.8c70733d.js.map": "/CPBLStats/static/js/main.8c70733d.js.map",
+    "main.699a1bd2.js.map": "/CPBLStats/static/js/main.699a1bd2.js.map",
     "787.01f9c7dc.chunk.js.map": "/CPBLStats/static/js/787.01f9c7dc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.448fe068.css",
-    "static/js/main.8c70733d.js"
+    "static/js/main.699a1bd2.js"
   ]
 }

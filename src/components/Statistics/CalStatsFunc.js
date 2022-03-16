@@ -1,8 +1,8 @@
 export const calAVG = (player) => {
   if (parseInt(player.AB) > 0) {
-    return (parseInt(player.H) / parseInt(player.AB)).toFixed(3);
+    return parseInt(player.H) / parseInt(player.AB);
   } else {
-    return (0 / 1).toFixed(3);
+    return 0 / 1;
   }
 };
 
@@ -17,17 +17,17 @@ export const calOBP = (player) => {
         parseInt(player.BB) +
         parseInt(player.HBP) +
         parseInt(player.SF))
-    ).toFixed(3);
+    );
   } else {
-    return (0 / 1).toFixed(3);
+    return 0 / 1;
   }
 };
 
 export const calSLG = (player) => {
   if (parseInt(player.AB) > 0) {
-    return (parseInt(player.TB) / parseInt(player.AB)).toFixed(3);
+    return parseInt(player.TB) / parseInt(player.AB);
   } else {
-    return (0 / 1).toFixed(3);
+    return 0 / 1;
   }
 };
 
@@ -44,9 +44,9 @@ export const calOPS = (player) => {
           parseInt(player.IBB) +
           parseInt(player.HBP) +
           parseInt(player.SF))
-    ).toFixed(3);
+    );
   } else {
-    return (0 / 1).toFixed(3);
+    return 0 / 1;
   }
 };
 
@@ -58,14 +58,14 @@ export const calERA = (player) => {
   return (
     (parseInt(player.ER) * 9) /
     ((parseInt(player.IP) * 3 + (Number(player.IP) % 1).toFixed(2) * 10) / 3)
-  ).toFixed(2);
+  );
 };
 
 export const calWHIP = (player) => {
   return (
     (parseInt(player.H) + parseInt(player.BB)) /
     ((parseInt(player.IP) * 3 + (Number(player.IP) % 1).toFixed(2) * 10) / 3)
-  ).toFixed(2);
+  );
 };
 
 // export const calAVGP = (player) => {

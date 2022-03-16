@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# CPBL Stats
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+統計計算各年度中職球員個人投打成績及球隊歷年全年戰績。\
+球員及球隊原始成績引用自[CPBL Opendata](https://github.com/ldkrsi/cpbl-opendata)，球隊基本資料引用自[中職官網](https://www.cpbl.com.tw/)。
 
-## Available Scripts
+## 統計數據
 
-In the project directory, you can run:
+### `.OBP(On-base Percentage)`
 
-### `npm start`
+本專案所用之上壘率計算公式如下：\
+\
+**OBP=(H 安打+BB 四壞+HBP 死球)/(AB 打數+BB 四壞+HBP 死球+SF 犧飛)**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+根據[MLB Glossary](https://www.mlb.com/glossary/standard-stats/walk)的解釋，故意四壞（Intentional Walk）在紀錄上也被視為是 BB（Walk or Base on Balls）的一部分。\
+故大聯盟版本的上壘率的確是有考量故意四壞的，
+但中職官網所計算之四壞不包含故意四壞，故計算結果會與中職官網略有不同。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `OPS+(On-base Plus Slugging Plus)`
 
-### `npm test`
+根據[MLB Glossary](https://www.mlb.com/glossary/advanced-stats/on-base-plus-slugging-plus)定義 OPS+需經過球場校正，由於中職資料有限故省略球場校正，計算公式如下：
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**OPS+=((OBP 上壘率/LgOBP 聯盟平均上壘率)+(SLG 長打率/lgSLG 聯盟平均長打率)-1)x100**
 
-### `npm run build`
+### `ERA+`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+根據[MLB Glossary](https://www.mlb.com/glossary/advanced-stats/earned-run-average-plus)定義 ERA+需經過球場校正，由於中職資料有限故省略球場校正，計算公式如下：
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**ERA+=(LgERA 聯盟平均防禦率 / ERA 防禦率)x100**

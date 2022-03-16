@@ -33,7 +33,7 @@ const PitchingStats = (props) => {
     return {
       ...props.playerStats[props.playerStats.indexOf(player)],
       ERAPlus: (
-        (props.avgStats.avgERA / Number(player.earnedRunAverage)) *
+        (Number(props.avgStats.avgERA) / Number(player.earnedRunAverage)) *
         100
       ).toFixed(0),
     };
@@ -166,7 +166,7 @@ const PitchingStats = (props) => {
                 <td>{player["Team Name"]}</td>
                 <td>{player.W}</td>
                 <td>{player.L}</td>
-                <td>{player.earnedRunAverage}</td>
+                <td>{Number(player.earnedRunAverage).toFixed(2)}</td>
                 <td>{player.G}</td>
                 <td>{player.GS}</td>
                 <td>{player.CG}</td>
@@ -181,7 +181,7 @@ const PitchingStats = (props) => {
                 <td>{player.HBP}</td>
                 <td>{player.BB}</td>
                 <td>{player.SO}</td>
-                <td>{player.walkAndHitPerInningPitched}</td>
+                <td>{Number(player.walkAndHitPerInningPitched).toFixed(2)}</td>
                 <td>{player.ERAPlus}</td>
               </tr>
             );

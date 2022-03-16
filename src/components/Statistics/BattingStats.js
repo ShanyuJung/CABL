@@ -36,7 +36,7 @@ const BattingStats = (props) => {
           Number(player.sluggingPercentage) / Number(props.avgStats.avgSLG) -
           1) *
         100
-      ).toFixed(0)}`,
+      ).toFixed(1)}`,
     };
   });
   const [sortPlayerStats, setSortPlayerStats] = useState(playerHittingStats);
@@ -146,10 +146,10 @@ const BattingStats = (props) => {
                 <td>{player.CS}</td>
                 <td>{player.BB}</td>
                 <td>{player.SO}</td>
-                <td>{player.hittingAverage}</td>
-                <td>{player.onBasePercentage}</td>
-                <td>{player.sluggingPercentage}</td>
-                <td>{player.onBasePlusSlugging}</td>
+                <td>{Number(player.hittingAverage).toFixed(3)}</td>
+                <td>{Number(player.onBasePercentage).toFixed(3)}</td>
+                <td>{Number(player.sluggingPercentage).toFixed(3)}</td>
+                <td>{Number(player.onBasePlusSlugging).toFixed(3)}</td>
                 <td>{player.OPSPlus}</td>
               </tr>
             );

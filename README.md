@@ -1,8 +1,26 @@
-# CPBL Stats
+# [CPBL Stats](https://shanyujung.github.io/CPBLStats/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
 統計計算各年度中職球員個人投打成績及球隊歷年全年戰績。\
 球員及球隊原始成績引用自[CPBL Opendata](https://github.com/ldkrsi/cpbl-opendata)，球隊基本資料引用自[中職官網](https://www.cpbl.com.tw/)。
+
+## Features
+
+- [x] Sortable table
+- [x] react-router-dom
+- [x] RESTful API
+
+### `Sortable table`
+
+使用者可以透過點擊表格各列 header 正反排序各項球員成績，並透過 select 篩選年度及條件。
+
+### `react-router-dom`
+
+利用 react-router-dom 配合 Navbar 管理畫面渲染。
+
+### `RESTful API`
+
+利用 Fetch GET 資料，並將 csv 格式的資料轉換成 json 格式以利後續處理。
 
 ## 統計數據
 

@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - [x] Sortable table
 - [x] react-router-dom
-- [x] RESTful API
+- [x] API
 
 ### `Sortable table`
 
@@ -18,7 +18,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 利用 react-router-dom 配合 Navbar 管理畫面渲染。
 
-### `RESTful API`
+### `API`
 
 利用 Fetch GET 資料，並將 csv 格式的資料轉換成 json 格式以利後續處理。
 

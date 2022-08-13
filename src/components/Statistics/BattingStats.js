@@ -14,7 +14,7 @@ const BattingStats = (props) => {
     { key: "H", label: "H", width: 50 },
     { key: "2B", label: "2B", width: 50 },
     { key: "3B", label: "3B", width: 50 },
-    { key: "hHR", label: "HR", width: 50 },
+    { key: "HR", label: "HR", width: 50 },
     { key: "R", label: "R", width: 50 },
     { key: "RBI", label: "RBI", width: 50 },
     { key: "SB", label: "SB", width: 50 },
